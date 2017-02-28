@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head><title>百度前端作业1</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="nav">
+<h1>
+	<ul>
+		<li>
+		<li>
+	</ul>
+</div>
+<div id="article1">
+	<h2>
+	<h3>
+		<p>
+		<img>
+	
+</div>
+<div id="article2">
+	<h2>
+	<h3>
+		<p>
+		<img>
+</div>
+<div id="article3">
+	<h2>
+	<h3>
+		<p>
+		<img>
+</div>
+<div id="sidebar">
+	<h2>
+	<h3>
+	
+</div>
+</body>
+</html>
