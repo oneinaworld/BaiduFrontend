@@ -87,35 +87,57 @@
 		</tr>
 	</table>
 	</article>
-	<aside><h2>侧栏标题</h2>
-	请输入邮箱地址：<input type="text"><br>
-	邮箱地址请按要求格式输入<br>
-	请输入密码：<input type="text">请重复输入密码：<input type="text"><br>
-	密码请为6-16位英文数字<br>
-	<form>
-		<label>性别：</label>
-		<label>男</label>
-		<input type="radio" value="1" name="gender" />
-		<label>女</label>
-		<input type="radio" value="2" name="gender" />
-	城市：
-		<select>
-			<option value="beijing">北京</option>
-			<option value="shanghai">上海</option>
-		</select>
-		<label>爱好：</label>
-		<input type="checkbox" name="运动">
-		运动
-		<input type="checkbox" name="艺术">
-		艺术
-		<input type="checkbox" name="科学">
-		科学
-	个人描述：
-	<textarea name="多行文本框" id="" cols="20" rows="2">多行文本框，输入个人描述</textarea>
-	<input type="submit" value="确认提交">
+	<aside>
+	<form method="post" action="">
+		<h2>侧栏标题</h2>
+		<ul>
+			<li>
+				<label for="mailaddress">请输入邮箱地址：</label>
+				<div class="shuoming"><input type="email" name="mailaddress"><br>
+				邮箱地址请按要求格式输入</div>
+			</li>
+			<li>
+				<label for="password">请输入密码：</label>
+				<input type="password" name="password">
+			</li>
+			<li>
+				<label for="password">请重复输入密码：</label>
+				<div class="shuoming"><input type="password" name="password"><br>
+				密码请为6-16位英文数字</div>
+			</li>
+			<li>	
+				<label for="gender">性别：</label>
+				男
+				<input type="radio" value="1" name="gender" />
+				女
+				<input type="radio" value="2" name="gender" />
+			</li>
+			<li>
+				<label for="city">城市：</label>
+				<select>
+					<option value="beijing">北京</option>
+					<option value="shanghai">上海</option>
+				</select>
+			</li>
+			<li>	
+				<label for="interest">爱好：</label>
+				<input type="checkbox" name="运动">
+				运动
+				<input type="checkbox" name="艺术">
+				艺术
+				<input type="checkbox" name="科学">
+				科学
+			</li>
+			<li>
+				<label for="bio" id="bio">个人描述：</label>
+				<textarea name="多行文本框" id="" cols="50" rows="5">多行文本框，输入个人描述</textarea>
+			</li>
+		</ul>
+			<input type="submit" value="确认提交" id="submit">
 	</form>
 	</aside>
 	<footer>
-	<h6>版权所有&copy</h4></footer>
+	<small>版权所有&copy</small>
+	</footer>
 </body>
 </html>
