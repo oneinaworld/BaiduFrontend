@@ -1,0 +1,60 @@
+img{
+	width: 80px;
+	height: 80px;
+	margin-left margin-right: 20px;
+	margin-top: 20px;
+}
+#logo4{
+	margin-bottom: 20px;
+}
+#jieshao{
+	position: absolute;
+	font-size: 1em;
+	top: 28px;
+	left: 160px;
+}
+nav{
+	width: 160px;
+	/* position: absolute; */
+	left: 20px;
+	top: 20px;
+	padding: 20px;
+	padding-top: 0;
+	float: left;
+	margin: 20px;
+}
+#logo1{
+	float: left;
+}
+aside{
+	/* position: absolute; */
+	right: 20px;
+	top: 20px;
+	width: 120px;
+	text-align: center;
+	float: right;
+	margin: 20px;
+}
+article{
+	position: absolute;
+	left: 240px;
+	right: 160px;
+	top: 20px;
+	padding: 20px;
+}
+div{
+	display: inline-block;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	/* bottom: 20px; */
+	/* height: 480px; */
+	left: 20px;
+	background: #eee;
+	border: 1px solid #999;
+	overflow: auto;
+}
+nav,aside,article{
+	border: 1px solid #999;
+	background: white;
+}
