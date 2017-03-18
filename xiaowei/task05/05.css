@@ -59,6 +59,7 @@ footer{
 	max-width: 200px;
 	text-align: center;
 	margin:20px;
+	display: inline-table; /* 让图片横向排列 */
 }
 /* 中间文章的列表去除项目号 */
 article>ul{
@@ -144,3 +145,5 @@ footer{
 	/* width: 100%; */
 	/* margin-top: -60px; */
 }
+
+/* 好看的图片格式 */
