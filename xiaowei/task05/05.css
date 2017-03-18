@@ -41,7 +41,7 @@ article, aside{
 	padding: 20px;
 	line-height: 1.8;
 }
-/* 页脚颜色 */
+/* 页脚颜色大小 */
 footer{
 	background-color: black;
 	color: white;
@@ -81,15 +81,17 @@ td{
 /* 侧栏格式 */
 aside form ul{
 	list-style: none;
+	padding-left: 0;
 }
 aside form ul li{
-	margin:0.5em 0;
-	padding-left: 20%;
+	margin:1em 0;
+	/* padding-left: 5%; */
+	font-size: 50%;
 }
 label{
 	display: inline-block;
 	text-align: right;
-	width: 150px;
+	width: 100px;
 	vertical-align: top;
 }
 #bio{
@@ -137,8 +139,8 @@ body{
 	position:relative;
 } */
 footer{
-	position: absolute;
+	/* position: absolute; */
 	bottom: 0;
-	width: 100%;
+	/* width: 100%; */
 	/* margin-top: -60px; */
 }
