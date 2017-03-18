@@ -116,14 +116,11 @@ label{
 /* 以下让侧栏靠右 */
 aside{
 	width: 330px;
-/* 	position: absolute;
-	top: 60px;
-	right: 2px; */
+	position: absolute;
+	top: 55px;
+	right: 2px;
 	float: right;
 }
 #content{
-	position: absolute;
-	right: 400px;
-	top: 55px;
+	margin-right: 400px;
 }
-/* 以下让footer靠底 */
