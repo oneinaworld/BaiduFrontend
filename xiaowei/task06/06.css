@@ -5,7 +5,7 @@
  * @date    2017-03-19 21:17:55
  * @version $Id$
  */
-p, div, header, article, footer{
+p, div, header, article,  footer{
 	border: 1px solid red;
 }
 
@@ -49,8 +49,24 @@ header{
 	width: 641px;
 	height: 300px;
 }
-.info3{
+.what, .when, .how{
 	float: left;
+	/* display: inline-block; */
+}
+.what{
+	width: 40%;
+	height: 100%;
+	/* float: left; */
+}
+.when{
+	width: 30%;
+	height: 100%;
+	/* float: left; */
+}
+.how{
+	width: 30%;
+	height: 100%;
+	/* float: left; */
 }
 /* down部分样式 */
 .report1{
@@ -69,4 +85,8 @@ header{
 	width: 50%;
 	height: 50%;
 	float: right;
+}
+.report1 img{
+	float: right;
+
 }
