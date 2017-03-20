@@ -5,6 +5,10 @@
  * @date    2017-03-19 21:17:55
  * @version $Id$
  */
+*{
+	margin: 0;
+	padding: 0;
+}
 p, div, header, article,  footer{
 	border: 1px solid red;
 }
@@ -55,6 +59,47 @@ header{
 	width: 203px;
 	height: 301px;
 	float: right;
+}
+.info1 h2{
+	font: 24px "Yahei";
+	text-transform: uppercase;
+	text-decoration: underline;
+	color: #000000;
+	line-height: 40px;
+}
+.info1 p{
+	font: 12px "Kaiti";
+	color: #676767;
+	line-height: 10px;
+	word-wrap: break-word;
+}
+.info1 h3{
+	font: italic 116px "Yahei";
+	color: #75b86b;
+	/* text-decoration: underline; */
+	margin: 0;
+	position: relative;
+	left: -25px;
+}
+.info1 h4{
+	font: 55px "Yahei";
+	color: #cc8091;
+	position: relative;
+	bottom: 10px;
+}
+.css1{
+	font: 21px "Yahei";
+	color: #cc8091;
+	position: relative;
+	left: 85px;
+	bottom: 60px;
+}
+.css2{
+	font: 12px "Yahei";
+	color: #cc8091;
+	position: relative;
+	left: 50px;
+	bottom: 45px;
 }
 .info2{
 	width: 641px;
