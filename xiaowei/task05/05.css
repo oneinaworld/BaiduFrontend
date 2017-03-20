@@ -52,7 +52,7 @@ footer{
 }
 /*图片段的格式 */
 .pic img{
-	max-width: 150px;
+	max-width: 100%;
 }
 .pic{
 	border:1px solid gray;
