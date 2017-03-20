@@ -31,9 +31,20 @@ header{
 	height: 61px;
 	background: red;
 }
+.logo span{
+	display: block;
+	padding-top: 40px;
+	font: 12px "SimHei" ;
+	color: #ffffff;
+	padding-left: 3px;
+}
 .date{
 	float: right;
+	padding-top: 40px;
+	font: 12px "SimHei" ;
+	color: #d45d5c;
 }
+
 
 /* up部分样式 */
 .pic1 img{
