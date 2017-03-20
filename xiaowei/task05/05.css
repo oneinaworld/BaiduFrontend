@@ -124,3 +124,6 @@ aside{
 #content{
 	margin-right: 400px;
 }
+p img, article img{
+	max-width:100%;
+}
