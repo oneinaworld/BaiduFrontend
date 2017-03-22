@@ -31,7 +31,7 @@ header{
 	float: left;
 	width: 110px;
 	height: 61px;
-	background: red;
+	background: #d45d5c;
 }
 .logo span{
 	display: block;
@@ -207,9 +207,10 @@ header{
 	background: lightyellow;
 	width: 459px;
 	height: 318px;
+	position: relative;
 	/* margin-top: 20px; */
 }
-
+/* 黄块中的列表 */
 .info3 ul{
 	font: 16px "Simsun";
 	line-height: 24px;
@@ -217,30 +218,63 @@ header{
 	/* position: relative; */
 	/* left: 30px; */
 	/* top: 30px; */
+	padding-top: 30px;
+	padding-left: 30px;
 }
-.one{
+/* 黄块中的红块 */
+.redbox{
 	color: #ffffff;
-	float: left;
 	background: #d45d5c;
 	width: 200px;
 	height: 120px;
 	padding: 20px 10px;
-	position: relative;
-	top: 86px;
-	/* margin-right: 20px; */
+	position: absolute;
+	bottom:0;
+	font: italic 21px "Simhei";
+	line-height: 24px;
 }
+span.big{
+	font: 110px "Yahei";
+}
+span.small{
+	line-height: 6px
+	font: 12px "Simhei";
+}
+/* .redbox h4{
+    width: 100px;
+    position: relative;
+    left: 80px;
+    bottom: 130px;
+    right: 50px;
+    text-transform: uppercase;
+}
+.redbox p{
+    position: relative;
+    left: 80px;
+    bottom: 120px;
+    font: 12px "Simhei";
+    pad
+}
+.redbox span{
+	font: 110px "Yahei";
+	border-right: 2px solid #ffffff;
+	
+} */
 
-.world{
+/* 黄块中的字 */
+.info3>p{
 	font: italic 14px "Simhei";
 	color: #5a5b5b;
 	line-height: 16px;
+	width: 200px;
+	float: right;
+	position: absolute;
+	bottom: 60px;
+	right: 0;
 }
-.world span{
+.info3>p span{
 	color: #d45d5c;
 	font-size: 72px;
 	font-style: normal;
 	vertical-align: text-bottom;
-}
-#rightbottom{
-
 }
