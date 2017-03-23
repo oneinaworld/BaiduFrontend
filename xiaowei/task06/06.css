@@ -288,7 +288,7 @@ div.big {
 	font: 110px "Yahei";
 	float: left;
 	line-height: 90px;
-	border-right: 20px solid;
+	border-right: 2px solid;
 }
 
 div.small {
