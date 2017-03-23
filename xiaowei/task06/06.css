@@ -281,19 +281,25 @@ margin-bottom: 60px;
 	font: italic 21px "Simhei";
 	line-height: 24px;
 	box-sizing: border-box;
-	padding: 30px 7px;
+	padding: 40px 7px;
 }
 
 div.big {
 	font: 110px "Yahei";
 	float: left;
+	line-height: 90px;
+	border-right: 20px solid;
 }
 
 div.small {
 	line-height: 6px;
 	font: 12px "Simhei";
+	padding-left: 75px;
 }
 
+div.up {
+	padding-left: 75px;
+}
 
 
 /* 黄块中的字 */
