@@ -1,0 +1,47 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*定义宽度模板*/
+.container{
+	width: 100%;
+}
+.row{
+	width: 100%;
+}
+.col-1{
+	width: 8.33%;
+}
+.col-2{
+	width: 16.66%;
+}
+.col-3{
+	width: 25%;
+}
+.col-4{
+	width: 33.33%;
+}
+.col-5{
+	width: 41.66%;
+}
+.col-6{
+	width: 50%;
+}
+
+*{
+	box-sizing: border-box;
+}
+[class*='col-']{
+	float: left;
+	height: 70px;
+}
+/*定义清除浮动*/
+.over-flow{
+    overflow: auto; zoom: 1;
+}
+.content{
+	height: 50px;
+	background-color: #eee;
+	border: 1px solid #999;
+	margin: 10px;
+}
