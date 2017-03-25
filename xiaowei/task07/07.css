@@ -116,3 +116,22 @@ div.banner{
 .intro div:nth-child(4) p:nth-child(2){
 	border: none;
 }
+
+/* info的样式 */
+.info{
+	background: #ededec;
+	padding-bottom: 80px;
+	padding-top: 90px;
+}
+.info img{
+	display: block;
+	width: 90px;
+	height: 90px;
+	padding-bottom: 60px;
+	margin: 0 auto;
+ }
+.info p{
+	text-align: center;
+	font: 53.59px "Simhei";
+	color: #a1a1a1;
+}
