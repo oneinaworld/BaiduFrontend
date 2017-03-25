@@ -1,0 +1,61 @@
+/* 初始化边距 */
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+/* 页面居中 */
+body{
+	margin: 0 auto;
+	width: 1280px;
+}
+
+/* 设置header的样式 */
+header{
+	height: 56px;
+	position: relative;
+}
+
+.logo h1{
+	position: absolute;
+	left: 100px;
+	font: 21px "Simhei";
+	color: #282828;
+}
+.logo img{
+	position: absolute;
+	left: 53px;
+	top: 10px;
+}
+
+nav{
+	float: right;
+	right: 70px;
+	font: 14px "Yahei";
+}
+nav ul{
+	list-style-type: none;
+}
+nav ul li{
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	padding: 1em 1em;
+	color: #282828;
+}
+li a{
+	text-decoration: none;
+}
+li:hover{
+	color: #e74f4d;
+	border-bottom: 3px solid #e74f4d;
+}
+
+li.login{
+	color: #e74f4d;
+}
+.login:before{
+	content:url(task_1_7_1_01_05.gif);
+	position: relative;
+	top: 5px;
+}
