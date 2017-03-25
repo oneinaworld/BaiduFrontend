@@ -1,5 +1,5 @@
 /* 初始化边距 */
-ul{
+ul,h1,p{
 	margin: 0;
 	padding: 0;
 }
@@ -19,6 +19,7 @@ header{
 .logo h1{
 	position: absolute;
 	left: 100px;
+	top: 15px;
 	font: 21px "Simhei";
 	color: #282828;
 }
@@ -30,7 +31,7 @@ header{
 
 nav{
 	float: right;
-	right: 70px;
+	padding-right: 50px;
 	font: 14px "Yahei";
 }
 nav ul{
@@ -59,3 +60,35 @@ li.login{
 	position: relative;
 	top: 5px;
 }
+
+/* banner的样式 */
+.banner{
+	width: 1280px;
+	height: 851px;
+	background: url(banner.jpg) no-repeat;
+	padding-top: 184px;
+	padding-left: 124px;
+}
+.banner h1{
+	font: 60px "Yahei";
+	color: white;
+	position: relative;
+	left: -10px;
+}
+.banner>p{
+	font: 21px "Yahei";
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 66px;
+}
+.banner button{
+	border: none;
+	width: 331px;
+	height: 65px;
+	background-color: #e74f4d;
+	color: white;
+	font: 30px "Yahei";
+	letter-spacing: 0.1em;
+}
+
+
