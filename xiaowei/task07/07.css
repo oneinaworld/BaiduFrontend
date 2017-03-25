@@ -1,5 +1,5 @@
 /* 初始化边距 */
-ul,h1,p{
+ul,h1,h2,h3,p,img,div{
 	margin: 0;
 	padding: 0;
 }
@@ -62,12 +62,12 @@ li.login{
 }
 
 /* banner的样式 */
-.banner{
-	width: 1280px;
-	height: 851px;
+div.banner{
+	/* width: 1280px; */
+	height: 690px;
 	background: url(banner.jpg) no-repeat;
-	padding-top: 184px;
-	padding-left: 124px;
+	padding: 184px 0 0 124px;
+	box-sizing: border-box;
 }
 .banner h1{
 	font: 60px "Yahei";
@@ -91,4 +91,28 @@ li.login{
 	letter-spacing: 0.1em;
 }
 
-
+/* intro的样式 */
+.intro{
+	height: 250px;
+}
+.intro div{
+	display: inline-block;
+	width: 300px;
+	text-align: center;
+}
+.intro img{
+	width: 40px;
+	height: 40px;
+	padding-top: 45px;
+	padding-bottom: 48px;
+}
+.intro p{
+	height: 53px;
+	margin-bottom: 64px;
+	font: 14px "Simhei";
+	color: #767777;
+	border-right: 1px solid #767777;
+}
+.intro div:nth-child(4) p:nth-child(2){
+	border: none;
+}
