@@ -182,3 +182,43 @@ div.banner{
 	border: none;
 	margin-left: 15px;
 }
+
+/* activity1的样式 */
+.activity1{
+	height: 604px;
+	background: #ededec;
+	box-sizing: border-box;
+	padding: 104px 145px;
+}
+.activity1 img{
+	background: white;
+	padding: 8px;
+	outline: #e6e6e6 solid 1px;
+	width: 201px;
+	height: 312px;
+}
+.activity1 div{
+	display: inline-block;
+}
+.activity1 div:nth-child(1), .activity1 div:nth-child(2),.activity1 div:nth-child(3){
+	margin-right: 35px;
+}
+.activity1 div:nth-child(1) h3,.activity1 div:nth-child(3) h3,.activity1 div:nth-child(4) h3{
+	font: bold 14px "Yahei";
+	color: #323333;
+	text-align: center;
+	line-height: 2em;
+}
+.activity1 div:nth-child(2) h3{
+	font: bold 18px "Yahei";
+	color: #323333;
+	text-align: center;
+	line-height: 2em;
+	letter-spacing: 2em;
+}
+.activity1 h4{
+	font: 12px "Yahei";
+	color: #9f9f9f;
+	text-align: center;
+	line-height: 2em;
+}
