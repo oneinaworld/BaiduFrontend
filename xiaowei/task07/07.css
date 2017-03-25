@@ -1,5 +1,5 @@
 /* 初始化边距 */
-ul,h1,h2,h3,p,img,div{
+ul,h1,h2,h3,h4,h5,p,img,div{
 	margin: 0;
 	padding: 0;
 }
@@ -134,4 +134,51 @@ div.banner{
 	text-align: center;
 	font: 53.59px "Simhei";
 	color: #a1a1a1;
+}
+
+/* city的样式 */
+.city{
+	box-sizing: border-box;
+	height: 340px;
+	background: url('组2_02.jpg');
+	padding-top: 56px;
+}
+.city h2{
+	font: 21px "Yahei";
+	color: white;
+	text-align: center;
+}
+.city hr{
+	width: 1.5em;
+}
+.city h4{
+	font: 12px "Yahei";
+	color: white;
+	text-align: center;
+	margin-bottom: 52px;
+}
+.city form{
+	text-align: center;
+}
+.city select{
+	width: 236px;
+	height: 36px;
+	display: inline-block;
+	margin: 0 15px;
+	color: #a1a1a1;
+	font: 12px "Yahei";
+	/* appearance: none; */
+	/* background-color: white; */
+	/* background: url('task_1_7_1_03.jpg') no-repeat right; */
+
+}
+.city button{
+	width: 236px;
+	height: 36px;
+	display: inline-block;
+	background-color: #e74f4d;
+	font: 14px "Yahei";
+	color: white;
+	border: none;
+	margin-left: 15px;
 }
