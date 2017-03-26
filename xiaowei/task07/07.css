@@ -339,6 +339,8 @@ hr{
 	padding-left: 138px;
 	/* margin-right: 60px; */
 	width: 33%;
+	margin-right: 0;
+	float: left;
 }
 .agreement h3{
 	font: 14px "Simhei";
@@ -407,4 +409,52 @@ hr{
 	font: 12px "Simsun";
 	color: #231815;
 	background: white;
+}
+/* 表单样式 */
+form{
+	display: block;
+	box-sizing: border-box;
+	width: 65%;
+	float: right;
+	overflow: auto;
+	background: white;
+	padding-left: 77px;
+	padding-right: 40px;
+}
+form section{ /* 每个控件的大小、间距 */
+	display: inline-block;
+	box-sizing: border-box;
+	background: #ededef;
+	margin: 0 10px 10px 0;
+	padding: 0 10px;
+}
+form input{
+	background: #ededef;
+}
+form label{
+	font: 12px "Simsun";
+	color: #231815;
+}
+form section:nth-child(1), form section:nth-child(2), form section:nth-child(3), form section:nth-child(4){ /* 前4个控件的大小 */
+	width: 311px;
+	float: left;
+	
+}
+form input:nth-child(1), form input:nth-child(2), form input:nth-child(3), form input:nth-child(4){ /* 前4个输入框的大小 */
+	border: none;
+	height: 50px;
+}
+form section:nth-child(5){ /* 第5个控件的大小 */
+	height: 117px;
+	width: 635px;
+}
+form textarea{ /* 多行输入区域的大小 */
+	background: #ededef;
+	border: none;
+	width: 80%;
+	height: 80%;
+}
+form section:nth-child(6){
+	width: 635px;
+	text-align: center;
 }
