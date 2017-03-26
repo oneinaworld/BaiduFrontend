@@ -148,7 +148,7 @@ div.banner{
 	color: white;
 	text-align: center;
 }
-.city hr{
+hr{
 	width: 1.5em;
 }
 .city h4{
@@ -212,13 +212,100 @@ div.banner{
 .activity1 div:nth-child(2) h3{
 	font: bold 18px "Yahei";
 	color: #323333;
-	text-align: center;
+	text-align-last:justify; /* “上海活动”几个字两端对齐 */
 	line-height: 2em;
-	letter-spacing: 2em;
 }
 .activity1 h4{
 	font: 12px "Yahei";
 	color: #9f9f9f;
 	text-align: center;
 	line-height: 2em;
+}
+
+/* activity2的样式 */
+.activity2{
+	height: 1086px;
+	/* overflow: auto; */
+}
+.activity2 div:nth-child(1){
+	background: url('新世界.jpg');
+	width: 66%;
+	height: 567px;
+	float: left;
+	color: white;
+	text-align: center;
+}
+.activity2 div:nth-child(1) h2{
+	font: 50px "Yahei";
+	margin-top: 130px;
+}
+.activity2 div:nth-child(1) h3{
+	font: 157px "Yahei";
+}
+.activity2 div:nth-child(1) p{
+	font: 22px "Yahei";
+}
+.activity2 div:nth-child(2){
+	width: 33%;
+	height: 567px;
+	float: left;
+	text-align: center;
+}
+.activity2 div:nth-child(2) h2{
+	font: 21px 'Simhei';
+	margin-top: 167px;
+}
+.activity2 div:nth-child(2) p{
+	font: 12px "Simsun";
+	line-height: 30px;
+	margin: 30px 70px;
+	color: #aaaaaa;
+	text-align: left;
+}
+.activity2 div:nth-child(2) span{
+	color: #e74f4d;
+}
+.activity2 div:nth-child(2) button{
+	width: 107px;
+	height: 35px;
+	font: 12px "Hahei";
+	color: #e74f4d;
+	background: white;
+	border: 1px solid #e74f4d;
+}
+.activity2 div:nth-child(3),.activity2 div:nth-child(4){
+	width: 33%;
+	height: 521px;
+	float: left;
+	font: 21px "Simhei";
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	background: #e74f4d;
+	box-sizing: border-box;
+	padding-top: 170px;
+}
+.activity2 div:nth-child(3) button, .activity2 div:nth-child(4) button{
+	width: 170px;
+	height: 44px;
+	color: white;
+	font: 21px "Simhei";
+	background: #e74f4d;
+	border: 1px solid white;
+	margin-top: 10px;
+}
+.activity2 div:nth-child(4){
+	background: white;
+	color: #323333;
+}
+.activity2 div:nth-child(4) button{
+	background: white;
+	color: #e74f4d;
+	border: 1px solid #e74f4d;
+}
+.activity2 div:nth-child(5){
+	width: 33%;
+	height: 521px;
+	float: left;
+	background: url('组 2.jpg') no-repeat;
 }
