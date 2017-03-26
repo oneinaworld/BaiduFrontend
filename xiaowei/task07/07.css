@@ -309,3 +309,102 @@ hr{
 	float: left;
 	background: url('组 2.jpg') no-repeat;
 }
+
+/* volunteer的样式 */
+.volunteer{
+	height: 750px;
+}
+.volunteer h2{
+	font: 21px "Simhei";
+	color: #323333;
+	text-align: center;
+	width: 100%;
+	margin-top: 118px;
+}
+.volunteer>p{
+	font: 12px "Yahei";
+	color: #aaaaaa;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 105px;
+}
+.volunteer hr{
+	height:2px; /* 改变横线的颜色 */
+	border:none;
+	background-color: #e74f4d;
+}
+
+.leftbox{
+	box-sizing: border-box;
+	padding-left: 138px;
+	/* margin-right: 60px; */
+	width: 33%;
+}
+.agreement h3{
+	font: 14px "Simhei";
+	color: #231815;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.agreement p{
+	font: 12px "Simsun";
+	color: #aaaaaa;
+	text-align: left;
+	line-height: 2em;
+	height: 55px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.agreement button{
+	position: relative;
+	left: 230px;
+	border: none;
+	font: 12px "Simsun";
+	color: #231815;
+	background: white;
+}
+.agreement button:before{
+	content: 
+}
+.agreement button:link{
+	
+}
+
+.power h3{
+	font: 14px "Simhei";
+	color: #231815;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.power p{
+	font: 12px "Simsun";
+	color: #aaaaaa;
+	text-align: left;
+	line-height: 2em;
+	height: 55px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.power button{
+	position: relative;
+	left: 230px;
+	border: none;
+	font: 12px "Simsun";
+	color: #231815;
+	background: white;
+}
+
+.more h3{
+	font: 14px "Simhei";
+	color: #231815;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.more button{
+	position: relative;
+	left: 230px;
+	border: none;
+	font: 12px "Simsun";
+	color: #231815;
+	background: white;
+}
