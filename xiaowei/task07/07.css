@@ -167,10 +167,6 @@ hr{
 	margin: 0 15px;
 	color: #a1a1a1;
 	font: 12px "Yahei";
-	/* appearance: none; */
-	/* background-color: white; */
-	/* background: url('task_1_7_1_03.jpg') no-repeat right; */
-
 }
 .city button{
 	width: 236px;
@@ -411,7 +407,7 @@ hr{
 	background: white;
 }
 /* 表单样式 */
-form{
+.volunteer form{
 	display: block;
 	box-sizing: border-box;
 	width: 65%;
@@ -520,4 +516,7 @@ footer div button{
 	background: transparent;
 	color: white;
 	border: none;
+}
+footer img{
+	margin: 0 10px;	
 }
