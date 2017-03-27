@@ -160,30 +160,13 @@ hr{
 .city form{
 	text-align: center;
 }
-.city section{ /* 用section是为了给自定义下拉图标一个padding */
-	padding-right: 10px;
+.city select{
 	width: 236px;
 	height: 36px;
 	display: inline-block;
-	box-sizing: border-box;
 	margin: 0 15px;
-	background: white;
-}
-.city select{
 	color: #a1a1a1;
 	font: 12px "Yahei";
-	width: 100%;
-	height: 100%;
-	border: none;
-	/* 替换默认的下拉箭头 */
-	appearance:none;
-	-moz-appearance:none;
-	-webkit-appearance:none;
-	background: url('task_1_7_1_03.jpg') no-repeat right white;
-	/* padding: 5px; */
-}
-.city section:hover{
-	outline: 1px solid #e74f4d;
 }
 .city button{
 	width: 236px;
@@ -434,40 +417,40 @@ hr{
 	padding-left: 77px;
 	padding-right: 40px;
 }
-.volunteer form section{ /* 每个控件的大小、间距 */
+form section{ /* 每个控件的大小、间距 */
 	display: inline-block;
 	box-sizing: border-box;
 	background: #ededef;
 	margin: 0 10px 10px 0;
 	padding: 0 10px;
 }
-.volunteer form input{
+form input{
 	background: #ededef;
 }
-.volunteer form label{
+form label{
 	font: 12px "Simsun";
 	color: #231815;
 }
-.volunteer form section:nth-child(1), .volunteer form section:nth-child(2), .volunteer form section:nth-child(3), .volunteer form section:nth-child(4){ /* 前4个控件的大小 */
+form section:nth-child(1), form section:nth-child(2), form section:nth-child(3), form section:nth-child(4){ /* 前4个控件的大小 */
 	width: 311px;
 	float: left;
 	
 }
-.volunteer form input:nth-child(1), .volunteer form input:nth-child(2), .volunteer form input:nth-child(3), .volunteer form input:nth-child(4){ /* 前4个输入框的大小 */
+form input:nth-child(1), form input:nth-child(2), form input:nth-child(3), form input:nth-child(4){ /* 前4个输入框的大小 */
 	border: none;
 	height: 50px;
 }
-.volunteer form section:nth-child(5){ /* 第5个控件的大小 */
+form section:nth-child(5){ /* 第5个控件的大小 */
 	height: 117px;
 	width: 635px;
 }
-.volunteer form textarea{ /* 多行输入区域的大小 */
+form textarea{ /* 多行输入区域的大小 */
 	background: #ededef;
 	border: none;
 	width: 80%;
 	height: 80%;
 }
-.volunteer form section:nth-child(6){
+form section:nth-child(6){
 	width: 635px;
 	text-align: center;
 }
