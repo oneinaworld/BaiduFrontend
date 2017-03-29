@@ -1,0 +1,366 @@
+/*样式初始化*/
+
+form,
+nav,
+header,
+a,
+ul,
+li,
+fieldset,
+section,
+div {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+
+/*样式初始化结束*/
+
+
+/*header的样式*/
+
+header {
+    /* header的宽度与浏览器宽度一致 */
+    width: 100%;
+    background: #2189bf;
+    clear: both;
+    /* 不让aside浮动到顶 */
+}
+
+header>div {
+    height: 55px;
+    color: white;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+
+/*浮动logo到左边*/
+
+.logo {
+    float: left;
+    margin-left: 50px;
+    margin-top: 10px;
+    width: 36px;
+    height: 36px;
+}
+
+
+/*浮动login到右边*/
+
+.login {
+    float: right;
+    margin-right: 94px;
+    margin-top: 18px;
+    font: 12px Simhei, sans-serif;
+}
+
+.login:before {
+    content: url('login.gif');
+    position: relative;
+    right: 5px;
+    top: 3px;
+}
+
+
+/*搜索框*/
+
+header form {
+    float: right;
+    margin-top: 15px;
+    margin-right: 50px;
+    border-radius: 2em;
+    background: white;
+    width: 313px;
+    height: 28px;
+}
+
+header form img {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    top: 4px;
+    left: 6px;
+}
+
+header form input {
+    width: 90%;
+    border: none;
+}
+
+
+/*main的样式*/
+
+main {
+    width: 1020px;
+    background: #f1f4f6;
+}
+
+
+/*面包屑导航样式*/
+
+main nav {
+    width: 100%;
+    height: 33px;
+    background: white;
+}
+
+main nav ul {
+    list-style: none;
+    height: 100%;
+}
+
+main nav ul li {
+    float: left;
+    width: 60px;
+    text-align: center;
+    height: 100%;
+    font: 12px Simhei, sans-serif;
+    color: #aaaaaa;
+}
+
+main nav ul li+li a:before {
+    content: '/';
+    position: relative;
+    right: 10px;
+}
+
+main nav ul li a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    padding-top: 10px;
+}
+
+
+/*查询表单样式*/
+
+
+/* 表单整体样式 */
+
+main>form {
+    width: 890px;
+    height: 86px;
+    margin: 30px auto;
+    background: white;
+}
+
+
+/* 表单字体颜色 */
+
+main form fieldset label {
+    font: 12px Simhei, sans-serif;
+    color: #aaaaaa;
+}
+
+main form fieldset input {
+    font: 12px Simhei, sans-serif;
+    color: #323333;
+}
+
+main form fieldset select {
+    font: 12px Simhei, sans-serif;
+    color: #323333;
+    border: 1px solid #f1f4f6;
+}
+
+
+/* 区域排成行 */
+
+main>form fieldset {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    border: none;
+}
+
+
+/* 区域上边距 */
+
+main>form fieldset section {
+    margin-top: 10px;
+}
+
+
+/* 各区域样式 */
+
+
+/* 第一区域样式 */
+
+main>form>fieldset:first-child {
+    width: 124px;
+    margin-left: 30px;
+}
+
+main>form>fieldset:first-child label {
+    margin-right: 15px;
+}
+
+main>form>fieldset:first-child select {
+    width: 69px;
+}
+
+
+/* 第二区域样式 */
+
+main>form>fieldset:nth-child(2) {
+    width: 190px;
+    margin-left: 40px;
+}
+
+main>form>fieldset:nth-child(2) label {
+    margin-right: 15px;
+}
+
+main>form>fieldset:nth-child(2) select {
+    width: 120px;
+}
+
+
+/* 第三区域样式 */
+
+main>form>fieldset:nth-child(3) {
+    width: 292px;
+    margin-left: 30px;
+}
+
+main>form>fieldset:nth-child(3) section {
+    display: inline-block;
+}
+
+main>form>fieldset:nth-child(3) section:first-child {
+    width: 160px;
+}
+
+main>form>fieldset:nth-child(3) section:nth-child(2) {
+    width: 115px;
+}
+
+main>form>fieldset:nth-child(3) section:nth-child(3) {
+    width: 108px;
+}
+
+main>form>fieldset:nth-child(3) section:nth-child(4) {
+    width: 165px;
+}
+
+main>form>fieldset:nth-child(3) label {
+    margin-right: 15px;
+}
+
+
+/* 第四区域样式 */
+
+main>form>fieldset:nth-child(4) {
+    width: 50px;
+}
+
+
+/*历史查询样式*/
+
+div.history {
+    width: ;
+}
+
+div.history div:nth-child(2),
+
+/*统计样式*/
+
+div.sum {
+    width: ;
+}
+
+div.sum div {
+    width: ;
+}
+
+
+/*几个盒子的总体样式*/
+
+div.box {
+    background: ;
+    outline: font: ;
+    border:
+}
+
+div.box h2 {
+    background: ;
+    font: ;
+    color: ;
+}
+
+
+/*几个盒子的总体样式结束*/
+
+
+/*侧栏样式*/
+
+
+/*侧栏总体样式*/
+
+aside {
+    width: 260px;
+    background: ;
+    font: color: ;
+    float: left;
+}
+
+
+/*侧栏总体样式结束*/
+
+
+/*头像样式*/
+
+aside div:first-child div:first-child {}
+
+
+/*用户名*/
+
+aside div:first-child div:nth-child(2) {
+    color:
+}
+
+
+/*收藏和粉丝*/
+
+aside div:first-child div:nth-child(3),
+aside div:first-child div:nth-child(4) {
+    display: inline-block;
+    width: ；
+}
+
+
+/*导航的样式*/
+
+
+/*使链接区域都可点*/
+
+aside a {
+    display: block;
+}
+
+
+/*鼠标动态*/
+
+aside a:hover,
+aside a:active {
+    color: background；
+}
+
+aside li ul {
+    /*暂时隐藏低级菜单*/
+    display: none;
+}
+
+
+/*导航的动作*/
+
+aside nav
