@@ -1,5 +1,6 @@
 /*样式初始化*/
 
+body,
 form,
 nav,
 header,
@@ -8,9 +9,10 @@ ul,
 li,
 fieldset,
 section,
-div {
+div ,select,label,input{
     padding: 0;
     margin: 0;
+    outline: 1px solid red;
 }
 
 .clearfix:after {
@@ -154,39 +156,50 @@ main>form {
 }
 
 
-/* 表单字体颜色 */
+/* 表单字体样式颜色 */
 
 main form fieldset label {
     font: 12px Simhei, sans-serif;
     color: #aaaaaa;
 }
 
-main form fieldset input {
+main form input {
     font: 12px Simhei, sans-serif;
     color: #323333;
+    height: 24px;  /* input设成26却不是26高。无奈只能设成24 */
+    border: 1px solid #aaaaaa;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
-main form fieldset select {
+main form select {
     font: 12px Simhei, sans-serif;
     color: #323333;
-    border: 1px solid #f1f4f6;
+    border: 1px solid #aaaaaa;
+    height: 26px;
+    /* 去掉箭头 */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+/* 添加新的下拉箭头,且把箭头定位到元素90%,50%的位置 */
+main form select {
+	background: url('箭头.gif') no-repeat 90% 50%; 
+	padding-left: 5px; /* 把文字往框右边移一点 */
 }
 
-
-/* 区域排成行 */
+/* 四个区域排成行 */
 
 main>form fieldset {
     display: inline-block;
-    height: 100%;
+    height: 75px;
+    margin-top: 10px; /* 区域上边距 */
     vertical-align: top;
     border: none;
 }
-
-
-/* 区域上边距 */
-
-main>form fieldset section {
-    margin-top: 10px;
+main>form>fieldset label{
+	margin-right: 10px;
 }
 
 
@@ -196,32 +209,40 @@ main>form fieldset section {
 /* 第一区域样式 */
 
 main>form>fieldset:first-child {
-    width: 124px;
-    margin-left: 30px;
+    width: 122px;
+    margin-left: 30px;  /* 左边距 */
 }
 
 main>form>fieldset:first-child label {
-    margin-right: 15px;
+    /* margin-right: 15px; */
 }
 
 main>form>fieldset:first-child select {
-    width: 69px;
+    width: 68px;
 }
 
 
 /* 第二区域样式 */
 
 main>form>fieldset:nth-child(2) {
-    width: 190px;
+    width: 159px;
     margin-left: 40px;
+    position: relative;  /* 为给img定位 */
 }
-
+main>form>fieldset:nth-child(2) div{
+	position: absolute;
+	top: 2px;
+	right: 0;
+}
+main>form>fieldset:nth-child(2) section+section{
+	margin-top: 10px;
+}
 main>form>fieldset:nth-child(2) label {
-    margin-right: 15px;
+    /* margin-right: 15px; */
 }
 
 main>form>fieldset:nth-child(2) select {
-    width: 120px;
+    width: 90px;
 }
 
 
@@ -239,30 +260,47 @@ main>form>fieldset:nth-child(3) section {
 main>form>fieldset:nth-child(3) section:first-child {
     width: 160px;
 }
-
+main>form>fieldset:nth-child(3) section:first-child input{
+	width: 115px;
+}
 main>form>fieldset:nth-child(3) section:nth-child(2) {
+	/* margin-left: 15px; */
     width: 115px;
 }
-
+main>form>fieldset:nth-child(3) section:nth-child(2) select{
+	width: 50px;
+}
 main>form>fieldset:nth-child(3) section:nth-child(3) {
-    width: 108px;
+    width: 110px;
+    margin-top: 10px;
 }
-
+main>form>fieldset:nth-child(3) section:nth-child(3) select{
+	width: 50px;
+}
 main>form>fieldset:nth-child(3) section:nth-child(4) {
-    width: 165px;
+	/* margin-left: 15px; */
+    width: 162px;
+    margin-top: 10px;
 }
-
-main>form>fieldset:nth-child(3) label {
-    margin-right: 15px;
+main>form>fieldset:nth-child(3) section:nth-child(4) select{
+	width: 100px;
 }
 
 
 /* 第四区域样式 */
 
 main>form>fieldset:nth-child(4) {
-    width: 50px;
+	margin-top: 30px;
+	margin-left: 30px;
+    width: 160px;
 }
-
+#lookfor2{  /* 把提交按钮单独定义样式 */
+	background: #2189bf;
+	border: none;
+	color: white;
+	width: 47px;
+	text-align: center;
+}
 
 /*历史查询样式*/
 
