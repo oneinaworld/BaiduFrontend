@@ -105,7 +105,7 @@ header form input {
 
 main {
     width: 1020px;
-    background: #f1f4f6;
+    background: #e1e1e0;
 }
 
 
@@ -321,8 +321,8 @@ div.history{
 }
 /* 第2至7个盒子的宽、样式 */
 .history-box-middle{
-	width: 110px;
-	margin-left: 4px;
+	width: 108px;
+	margin-left: 3px;
 	height: 63px;
 	border-top: 3px solid transparent;/* 平常上边框看不见 */
 }
@@ -360,7 +360,7 @@ div.history{
 .historycheck{
 	position: relative;
 	top: -25px;
-	width: 125px;
+	width: 120px;
 	/* height: 100%; */
 }
 .historycheck p,.historycheck img{
@@ -376,17 +376,80 @@ div.history{
 	left: 15px;
 	top: 15px;
 }
+
 /*统计样式*/
 
 div.sum {
-    width: ;
+    width: 890px;
+    margin: 22px auto 0 auto;
 }
-
-div.sum div {
-    width: ;
+/* 四个大盒子 */
+.sum-box{
+	width: 195px;
+	height: 72px;
+	display: inline-block;
+	outline: 1px solid #aaaaaa;
+	background: white;
 }
-
-
+div.sum>div+div{
+	margin-left: 26px;
+}
+div.sum>h2{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+div.sum>div>p:first-child{
+	font: bold 12px Simhei,sans-serif;
+	width: 40px;
+	position: relative;
+	top: 20px;
+	left: 13px;
+}
+div.sum>div>p+p{
+	font: 12px Simhei,sans-serif;
+	width: 40px;
+	color: #aaaaaa;
+	position: relative;
+	top: 25px;
+	left: 13px;
+}
+/* 四个彩色盒子 */
+.sum-color-box {
+    width: 60px;
+    height: 46px;
+    float: right;
+    position: relative;
+    top: -15px;
+    left: -15px;
+}
+/* 第一个盒子颜色 */
+div.sum>:nth-child(2){
+	border-left: 3px solid #43b29e;
+}
+div.sum>:nth-child(2) div{
+	background: #43b29e;
+}
+/* 第二个盒子颜色 */
+div.sum>:nth-child(3){
+	border-left: 3px solid #388ac1;
+}
+div.sum>:nth-child(3) div{
+	background: #388ac1;
+}
+/* 第三个盒子颜色 */
+div.sum>:nth-child(4){
+	border-left: 3px solid #d04b36;
+}
+div.sum>:nth-child(4) div{
+	background: #d04b36;
+}
+/* 第四个盒子颜色*/
+div.sum>:nth-child(5){
+	border-left: 3px solid #e2cd47;
+}
+div.sum>:nth-child(5) div{
+	background: #e2cd47;
+}
 /*几个盒子的总体样式*/
 
 div.box {
