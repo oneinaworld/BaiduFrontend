@@ -9,9 +9,11 @@ ul,
 li,
 fieldset,
 section,
-div ,select,label,input{
+div ,select,label,input,p,h1,h2,h3{
     padding: 0;
     margin: 0;
+    font: 12px Yahei,sans-serif;
+    color: #323333;
     outline: 1px solid red;
 }
 
@@ -151,7 +153,7 @@ main nav ul li a {
 main>form {
     width: 890px;
     height: 86px;
-    margin: 30px auto;
+    margin: 30px auto 0 auto;
     background: white;
 }
 
@@ -293,6 +295,7 @@ main>form>fieldset:nth-child(4) {
 	margin-top: 30px;
 	margin-left: 30px;
     width: 160px;
+  	height: 30px;
 }
 #lookfor2{  /* 把提交按钮单独定义样式 */
 	background: #2189bf;
@@ -304,12 +307,75 @@ main>form>fieldset:nth-child(4) {
 
 /*历史查询样式*/
 
-div.history {
-    width: ;
+div.history{
+    width: 890px;
+    height: 66px;
+    margin: 10px auto 0 auto;
 }
-
-div.history div:nth-child(2),
-
+.history-box{
+	display: inline-table;
+	height: 66px;
+	background: white;
+	outline: 1px solid #aaaaaa;
+	text-align: center;
+}
+/* 第2至7个盒子的宽、样式 */
+.history-box-middle{
+	width: 110px;
+	margin-left: 4px;
+	height: 63px;
+	border-top: 3px solid transparent;/* 平常上边框看不见 */
+}
+.history-box-middle:hover{
+	border-top: 3px solid #2189bf;/* 鼠标悬停时上边框才可见 */
+}
+.history-box-middle p{
+	font-weight: bold;
+	margin-top: 10px;
+}
+/* 红色数字的样式 */
+.history-box-middle p+p{
+	font: 21px Yahei;
+	color: #ec6500;
+}
+.history-box-middle p+p:before{
+	content: url('钱.jpg');
+}
+/* 第1、8个盒子的样式 */
+.history-box-small{
+	width: 28px;
+	height: 66px;
+	background: white;
+	outline: 1px solid #aaaaaa;
+	position: relative;
+	top: -25px;
+}
+/* 箭头居中 */
+.history-box-small img{
+	position: absolute;
+	top: 40%;
+	left: 40%;
+}
+/* 最右边一块的样式 */
+.historycheck{
+	position: relative;
+	top: -25px;
+	width: 125px;
+	/* height: 100%; */
+}
+.historycheck p,.historycheck img{
+	display: inline-block;
+}
+.historycheck p{
+	position: absolute;
+	top: 25px;
+}
+.historycheck img{
+	vertical-align: middle;
+	position: absolute;
+	left: 15px;
+	top: 15px;
+}
 /*统计样式*/
 
 div.sum {
