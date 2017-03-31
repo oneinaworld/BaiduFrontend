@@ -9,12 +9,19 @@ ul,
 li,
 fieldset,
 section,
-div ,select,label,input,p,h1,h2,h3{
+div,
+select,
+label,
+input,
+p,
+h1,
+h2,
+h3 {
     padding: 0;
     margin: 0;
-    font: 12px Yahei,sans-serif;
+    font: 12px "Microsoft Yahei", sans-serif;
     color: #323333;
-    outline: 1px solid red;
+    /*outline: 1px solid red;*/
 }
 
 .clearfix:after {
@@ -64,7 +71,7 @@ header>div {
     float: right;
     margin-right: 94px;
     margin-top: 18px;
-    font: 12px Simhei, sans-serif;
+    font: 12px "Simhei", sans-serif;
 }
 
 .login:before {
@@ -127,7 +134,7 @@ main nav ul li {
     width: 60px;
     text-align: center;
     height: 100%;
-    font: 12px Simhei, sans-serif;
+    font: 12px "Simhei", sans-serif;
     color: #aaaaaa;
 }
 
@@ -161,14 +168,15 @@ main>form {
 /* 表单字体样式颜色 */
 
 main form fieldset label {
-    font: 12px Simhei, sans-serif;
+    font: 12px "Simhei", sans-serif;
     color: #aaaaaa;
 }
 
 main form input {
-    font: 12px Simhei, sans-serif;
+    font: 12px "Simhei", sans-serif;
     color: #323333;
-    height: 24px;  /* input设成26却不是26高。无奈只能设成24 */
+    height: 24px;
+    /* input设成26却不是26高。无奈只能设成24 */
     border: 1px solid #aaaaaa;
     appearance: none;
     -moz-appearance: none;
@@ -176,7 +184,7 @@ main form input {
 }
 
 main form select {
-    font: 12px Simhei, sans-serif;
+    font: 12px "Simhei", sans-serif;
     color: #323333;
     border: 1px solid #aaaaaa;
     height: 26px;
@@ -185,23 +193,30 @@ main form select {
     -moz-appearance: none;
     -webkit-appearance: none;
 }
+
+
 /* 添加新的下拉箭头,且把箭头定位到元素90%,50%的位置 */
+
 main form select {
-	background: url('箭头.gif') no-repeat 90% 50%; 
-	padding-left: 5px; /* 把文字往框右边移一点 */
+    background: url('箭头.gif') no-repeat 90% 50%;
+    padding-left: 5px;
+    /* 把文字往框右边移一点 */
 }
+
 
 /* 四个区域排成行 */
 
 main>form fieldset {
     display: inline-block;
     height: 75px;
-    margin-top: 10px; /* 区域上边距 */
+    margin-top: 10px;
+    /* 区域上边距 */
     vertical-align: top;
     border: none;
 }
-main>form>fieldset label{
-	margin-right: 10px;
+
+main>form>fieldset label {
+    margin-right: 10px;
 }
 
 
@@ -212,7 +227,8 @@ main>form>fieldset label{
 
 main>form>fieldset:first-child {
     width: 122px;
-    margin-left: 30px;  /* 左边距 */
+    margin-left: 30px;
+    /* 左边距 */
 }
 
 main>form>fieldset:first-child label {
@@ -229,16 +245,20 @@ main>form>fieldset:first-child select {
 main>form>fieldset:nth-child(2) {
     width: 159px;
     margin-left: 40px;
-    position: relative;  /* 为给img定位 */
+    position: relative;
+    /* 为给img定位 */
 }
-main>form>fieldset:nth-child(2) div{
-	position: absolute;
-	top: 2px;
-	right: 0;
+
+main>form>fieldset:nth-child(2) div {
+    position: absolute;
+    top: 2px;
+    right: 0;
 }
-main>form>fieldset:nth-child(2) section+section{
-	margin-top: 10px;
+
+main>form>fieldset:nth-child(2) section+section {
+    margin-top: 10px;
 }
+
 main>form>fieldset:nth-child(2) label {
     /* margin-right: 15px; */
 }
@@ -262,120 +282,156 @@ main>form>fieldset:nth-child(3) section {
 main>form>fieldset:nth-child(3) section:first-child {
     width: 160px;
 }
-main>form>fieldset:nth-child(3) section:first-child input{
-	width: 115px;
-}
-main>form>fieldset:nth-child(3) section:nth-child(2) {
-	/* margin-left: 15px; */
+
+main>form>fieldset:nth-child(3) section:first-child input {
     width: 115px;
 }
-main>form>fieldset:nth-child(3) section:nth-child(2) select{
-	width: 50px;
+
+main>form>fieldset:nth-child(3) section:nth-child(2) {
+    /* margin-left: 15px; */
+    width: 115px;
 }
+
+main>form>fieldset:nth-child(3) section:nth-child(2) select {
+    width: 50px;
+}
+
 main>form>fieldset:nth-child(3) section:nth-child(3) {
     width: 110px;
     margin-top: 10px;
 }
-main>form>fieldset:nth-child(3) section:nth-child(3) select{
-	width: 50px;
+
+main>form>fieldset:nth-child(3) section:nth-child(3) select {
+    width: 50px;
 }
+
 main>form>fieldset:nth-child(3) section:nth-child(4) {
-	/* margin-left: 15px; */
+    /* margin-left: 15px; */
     width: 162px;
     margin-top: 10px;
 }
-main>form>fieldset:nth-child(3) section:nth-child(4) select{
-	width: 100px;
+
+main>form>fieldset:nth-child(3) section:nth-child(4) select {
+    width: 100px;
 }
 
 
 /* 第四区域样式 */
 
 main>form>fieldset:nth-child(4) {
-	margin-top: 30px;
-	margin-left: 30px;
+    margin-top: 30px;
+    margin-left: 30px;
     width: 160px;
-  	height: 30px;
+    height: 30px;
 }
-#lookfor2{  /* 把提交按钮单独定义样式 */
-	background: #2189bf;
-	border: none;
-	color: white;
-	width: 47px;
-	text-align: center;
+
+#lookfor2 {
+    /* 把提交按钮单独定义样式 */
+    background: #2189bf;
+    border: none;
+    color: white;
+    width: 47px;
+    text-align: center;
 }
+
 
 /*历史查询样式*/
 
-div.history{
+div.history {
     width: 890px;
     height: 66px;
     margin: 10px auto 0 auto;
 }
-.history-box{
-	display: inline-table;
-	height: 66px;
-	background: white;
-	outline: 1px solid #aaaaaa;
-	text-align: center;
+
+.history-box {
+    display: inline-table;
+    height: 66px;
+    background: white;
+    outline: 1px solid #aaaaaa;
+    text-align: center;
 }
+
+
 /* 第2至7个盒子的宽、样式 */
-.history-box-middle{
-	width: 108px;
-	margin-left: 3px;
-	height: 63px;
-	border-top: 3px solid transparent;/* 平常上边框看不见 */
+
+.history-box-middle {
+    width: 108px;
+    margin-left: 3px;
+    height: 63px;
+    border-top: 3px solid transparent;
+    /* 平常上边框看不见 */
 }
-.history-box-middle:hover{
-	border-top: 3px solid #2189bf;/* 鼠标悬停时上边框才可见 */
+
+.history-box-middle:hover {
+    border-top: 3px solid #2189bf;
+    /* 鼠标悬停时上边框才可见 */
 }
-.history-box-middle p{
-	font-weight: bold;
-	margin-top: 10px;
+
+.history-box-middle p {
+    font-weight: bold;
+    margin-top: 10px;
 }
+
+
 /* 红色数字的样式 */
-.history-box-middle p+p{
-	font: 21px Yahei;
-	color: #ec6500;
+
+.history-box-middle p+p {
+    font: 21px "Yahei";
+    color: #ec6500;
 }
-.history-box-middle p+p:before{
-	content: url('钱.jpg');
+
+.history-box-middle p+p:before {
+    content: url('钱.jpg');
 }
+
+
 /* 第1、8个盒子的样式 */
-.history-box-small{
-	width: 28px;
-	height: 66px;
-	background: white;
-	outline: 1px solid #aaaaaa;
-	position: relative;
-	top: -25px;
+
+.history-box-small {
+    width: 28px;
+    height: 66px;
+    background: white;
+    outline: 1px solid #aaaaaa;
+    position: relative;
+    top: -25px;
 }
+
+
 /* 箭头居中 */
-.history-box-small img{
-	position: absolute;
-	top: 40%;
-	left: 40%;
+
+.history-box-small img {
+    position: absolute;
+    top: 40%;
+    left: 40%;
 }
+
+
 /* 最右边一块的样式 */
-.historycheck{
-	position: relative;
-	top: -25px;
-	width: 120px;
-	/* height: 100%; */
+
+.historycheck {
+    position: relative;
+    top: -25px;
+    width: 120px;
+    /* height: 100%; */
 }
-.historycheck p,.historycheck img{
-	display: inline-block;
+
+.historycheck p,
+.historycheck img {
+    display: inline-block;
 }
-.historycheck p{
-	position: absolute;
-	top: 25px;
+
+.historycheck p {
+    position: absolute;
+    top: 25px;
 }
-.historycheck img{
-	vertical-align: middle;
-	position: absolute;
-	left: 15px;
-	top: 15px;
+
+.historycheck img {
+    vertical-align: middle;
+    position: absolute;
+    left: 15px;
+    top: 15px;
 }
+
 
 /*统计样式*/
 
@@ -383,37 +439,47 @@ div.sum {
     width: 890px;
     margin: 22px auto 0 auto;
 }
+
+
 /* 四个大盒子 */
-.sum-box{
-	width: 195px;
-	height: 72px;
-	display: inline-block;
-	outline: 1px solid #aaaaaa;
-	background: white;
+
+.sum-box {
+    width: 195px;
+    height: 72px;
+    display: inline-block;
+    outline: 1px solid #aaaaaa;
+    background: white;
 }
-div.sum>div+div{
-	margin-left: 26px;
+
+div.sum>div+div {
+    margin-left: 26px;
 }
-div.sum>h2{
-	font-weight: bold;
-	margin-bottom: 5px;
+
+div.sum>h2 {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
-div.sum>div>p:first-child{
-	font: bold 12px Simhei,sans-serif;
-	width: 40px;
-	position: relative;
-	top: 20px;
-	left: 13px;
+
+div.sum>div>p:first-child {
+    font: bold 12px "Simhei", sans-serif;
+    width: 40px;
+    position: relative;
+    top: 20px;
+    left: 13px;
 }
-div.sum>div>p+p{
-	font: 12px Simhei,sans-serif;
-	width: 40px;
-	color: #aaaaaa;
-	position: relative;
-	top: 25px;
-	left: 13px;
+
+div.sum>div>p+p {
+    font: 12px "Simhei", sans-serif;
+    width: 40px;
+    color: #aaaaaa;
+    position: relative;
+    top: 25px;
+    left: 13px;
 }
+
+
 /* 四个彩色盒子 */
+
 .sum-color-box {
     width: 60px;
     height: 46px;
@@ -422,50 +488,124 @@ div.sum>div>p+p{
     top: -15px;
     left: -15px;
 }
+
+
 /* 第一个盒子颜色 */
-div.sum>:nth-child(2){
-	border-left: 3px solid #43b29e;
+
+div.sum>:nth-child(2) {
+    border-left: 3px solid #43b29e;
 }
-div.sum>:nth-child(2) div{
-	background: #43b29e;
+
+div.sum>:nth-child(2) div {
+    background: #43b29e;
 }
+
+
 /* 第二个盒子颜色 */
-div.sum>:nth-child(3){
-	border-left: 3px solid #388ac1;
+
+div.sum>:nth-child(3) {
+    border-left: 3px solid #388ac1;
 }
-div.sum>:nth-child(3) div{
-	background: #388ac1;
+
+div.sum>:nth-child(3) div {
+    background: #388ac1;
 }
+
+
 /* 第三个盒子颜色 */
-div.sum>:nth-child(4){
-	border-left: 3px solid #d04b36;
+
+div.sum>:nth-child(4) {
+    border-left: 3px solid #d04b36;
 }
-div.sum>:nth-child(4) div{
-	background: #d04b36;
+
+div.sum>:nth-child(4) div {
+    background: #d04b36;
 }
+
+
 /* 第四个盒子颜色*/
-div.sum>:nth-child(5){
-	border-left: 3px solid #e2cd47;
+
+div.sum>:nth-child(5) {
+    border-left: 3px solid #e2cd47;
 }
-div.sum>:nth-child(5) div{
-	background: #e2cd47;
+
+div.sum>:nth-child(5) div {
+    background: #e2cd47;
 }
-/*几个盒子的总体样式*/
+
+
+/*下面的四个圆角盒子的样式*/
+
+
+/*四个圆角盒子的总体样式*/
 
 div.box {
-    background: ;
-    outline: font: ;
-    border:
+    background: white;
+    outline: 1px solid #aaaaaa;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #aaaaaa;
 }
 
 div.box h2 {
-    background: ;
-    font: ;
-    color: ;
+    background: #f4f4f4;
+    font: 12px "Simhei", sans-serif;
+    color: #aaaaaa;
+    height: 40px;
+    line-height: 3em;
+    text-indent: 2em;
 }
 
 
-/*几个盒子的总体样式结束*/
+/*四个圆角盒子的总体样式结束*/
+
+
+/*左上圆角盒子*/
+
+.up-left {
+    width: 530px;
+    height: 350px;
+    margin: 15px 0 0 60px;
+}
+
+.up-left ul {
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+.up-left ul li {
+    float: left;
+    position: relative;
+}
+
+.up-left ul li table {
+    position: absolute;
+    top: 130%;
+    left: 0;
+    width: 400px;
+    height: 186px;
+    border: 1px solid #aaaaaa;
+    margin: 19px 50px 37px 36px;
+    border-collapse: collapse;
+    font: ;
+}
+
+.up-left ul li h3 {
+    width: 80px;
+    height: 12px;
+    text-align: center;
+    line-height: 1em;
+    padding: 8px 0 8px;
+    border-radius: 2px;
+}
+
+.up-left ul li table td {
+    border: 1px solid #aaaaaa;
+    height: 30px;
+    width: 97px;
+    font: 12px "Simsun", sans-serif;
+    text-align: center;
+}
 
 
 /*侧栏样式*/
