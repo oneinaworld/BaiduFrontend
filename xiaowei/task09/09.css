@@ -167,12 +167,12 @@ main>form {
 
 /* 表单字体样式颜色 */
 
-main form fieldset label {
+main >form fieldset label {
     font: 12px "Simhei", sans-serif;
     color: #aaaaaa;
 }
 
-main form input {
+main> form input {
     font: 12px "Simhei", sans-serif;
     color: #323333;
     height: 24px;
@@ -183,7 +183,7 @@ main form input {
     -webkit-appearance: none;
 }
 
-main form select {
+main> form select {
     font: 12px "Simhei", sans-serif;
     color: #323333;
     border: 1px solid #aaaaaa;
@@ -197,7 +197,7 @@ main form select {
 
 /* 添加新的下拉箭头,且把箭头定位到元素90%,50%的位置 */
 
-main form select {
+main> form select {
     background: url('箭头.gif') no-repeat 90% 50%;
     padding-left: 5px;
     /* 把文字往框右边移一点 */
@@ -563,9 +563,10 @@ div.box h2 {
 /*左上圆角盒子*/
 
 .up-left {
-    width: 530px;
-    height: 350px;
+    width: 534px;
+    height: 356px;
     margin: 15px 0 0 60px;
+    float: left;
 }
 
 .up-left ul {
@@ -607,7 +608,80 @@ div.box h2 {
     text-align: center;
 }
 
+/*右上圆角盒子*/
+.up-right{
+    width: 356px;
+    height: 356px;
+    float: right;
+    margin: 13px 0 0 0 ;
+}
+.up-right form{
+    margin:18px 35px 37px 35px;
+}
+.up-right form label{
+    color:#c3c2c2;
+    display: block;
+}
+.up-right form input{
+    border: none;
+    display: block;
+}
+.up-right form section:first-child{
+    width: 100%; 
+    clear: both;
+}
+.up-right form section:first-child label,.up-right form section:first-child input{
+    margin: 5px;
+}
+.up-right form section:nth-child(2){
+    width: 90px;
+    float: left;
+    border:1px solid #aaaaaa;
+    border-left: 0;
+}
+.up-right form section:nth-child(2) label{
+    margin: 5px;
+}
+.up-right form section:nth-child(2) input{
+    width: 80px;
+    margin: 5px;
+}
+.up-right form section:nth-child(3){
+    width: 180px;
+    float: left;
+    border:1px solid #aaaaaa;
+    border-right: 0;
+}
+.up-right form section:nth-child(3) label{
+margin: 5px;
+}
+.up-right form section:nth-child(3) input{
+    width: 160px;margin: 5px;
+}
+.up-right form section:nth-child(4) textarea{
+    width: 260px;
+    height: 120px;
+    border: 0;
+    border-bottom: 1px solid #aaaaaa;
+}
+.up-right form section:nth-child(4) label{
+    margin: 5px;
+}
 
+.up-right form section:nth-child(5) label,.up-right form section:nth-child(5) input{
+    display: inline-block;
+    margin-top: 10px;
+}
+.up-right form section:nth-child(6){
+    float: right;
+    position: relative;
+    top:-20px;
+}
+.up-right form section:nth-child(6) input{
+    height: 23px;
+    width: 50px;
+    background: #398bc2;
+}
 /*侧栏样式*/
 
 
