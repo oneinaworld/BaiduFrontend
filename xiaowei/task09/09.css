@@ -112,7 +112,7 @@ header form input {
 
 main {
     width: 1020px;
-    background: #e1e1e0;
+    background: #ededed;
 }
 
 
@@ -548,7 +548,7 @@ div.box {
 }
 
 div.box h2 {
-    background: #f4f4f4;
+    background: #f4f5f6;
     font: 12px "Simhei", sans-serif;
     color: #aaaaaa;
     height: 40px;
@@ -563,10 +563,10 @@ div.box h2 {
 /*左上圆角盒子*/
 
 .up-left {
-    width: 534px;
+    width: 530px;
     height: 356px;
     margin: 15px 0 0 60px;
-    float: left;
+    position: relative;
 }
 
 .up-left ul {
@@ -610,10 +610,12 @@ div.box h2 {
 
 /*右上圆角盒子*/
 .up-right{
-    width: 356px;
+    width: 350px;
     height: 356px;
-    float: right;
-    margin: 13px 0 0 0 ;
+    position: relative;
+    left: 600px;
+    top:-370px;
+    margin: 13px 69px 0 0 ;
 }
 .up-right form{
     margin:18px 35px 37px 35px;
@@ -682,6 +684,115 @@ margin: 5px;
     width: 50px;
     background: #398bc2;
 }
+
+/*左下日历组件*/
+.down-left{
+    float: left;
+    position: relative;    
+    top:-360px;
+    left: 60px;
+    height: 358px;
+}
+.down-left img{
+    margin: 5px 20px 20px 20px;
+}
+/*右下排行榜*/
+.down-right{
+    float: left;
+    position: relative;
+    top:-360px;
+    left:65px;
+    width: 533px;
+    height: 358px;
+}
+.down-right table{
+    border-collapse: collapse;   
+    margin: 10px 35px 0 35px; 
+    font: 12px "Simhei";
+}
+.down-right table td,.down-right table th{
+    border:1px solid #aaaaaa;
+}
+
+.down-right table tr>:nth-child(1){
+    width: 70px;
+    height: 23px;
+    text-align: center;
+}
+.down-right table tr>:nth-child(2){
+    width: 90px;
+    height: 23px;text-align: center;
+}
+.down-right table tr>:nth-child(3){
+    width: 290px;
+    height: 23px;
+    text-align: left;
+    text-indent: 2em;
+}
+.down-right table tr>:nth-child(3) progress{
+    margin-left: 15px;
+}
+.down-right td{
+    position: relative;
+}
+/*设置进度条大小、位置*/
+.bar{
+    width: 165px;
+    height: 5px;
+    position: absolute;
+    right: 20px;
+    top:10px;
+    background: #dddddd;
+}
+.progress{
+    height: 100%;
+}
+/*以下是分别设置进度条的progress的颜色和宽度*/
+.down-right table tr:nth-child(2) .progress{
+    width: 75%;
+        background: #ed6e52;
+}
+.down-right table tr:nth-child(3) .progress{
+    width: 70%;
+    background: #ef8150
+}
+.down-right table tr:nth-child(4) .progress{
+    width: 65%;
+    background: #f19e4f;
+}
+.down-right table tr:nth-child(5) .progress{
+    width: 60%;
+    background: #7ecaf0;
+}
+.down-right table tr:nth-child(6) .progress{
+    width: 55%;
+    background: #7ecaf0;
+}
+.down-right table tr:nth-child(7) .progress{
+    width: 50%;
+    background: #7ecaf0;
+}
+.down-right table tr:nth-child(8) .progress{
+    width: 45%;
+    background: #7ecaf0;
+}
+.down-right table tr:nth-child(9) .progress{
+    width: 40%;
+    background: #7ecaf0;
+}
+.down-right table tr:nth-child(10) .progress{
+    width: 35%;
+    background: #7ecaf0;
+}
+.down-right table tr:nth-child(11) .progress{
+    width: 30%;
+    background: #7ecaf0;
+}
+/*设置排名的鼠标事件*/
+.down-right tr:hover{
+    background: #f4f5f6;
+}
+
 /*侧栏样式*/
 
 
