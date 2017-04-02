@@ -107,13 +107,17 @@ header form input {
     border: none;
 }
 
+
 /*container*/
-.container{
+
+.container {
     width: 1280px;
     height: 100%;
     margin: 0 auto;
     position: relative;
 }
+
+
 /*main的样式*/
 
 main {
@@ -615,192 +619,247 @@ div.box h2 {
     text-align: center;
 }
 
+
 /*右上圆角盒子*/
-.up-right{
+
+.up-right {
     width: 350px;
     height: 356px;
     position: relative;
     left: 600px;
-    top:-370px;
-    margin: 13px 69px 0 0 ;
+    top: -370px;
+    margin: 13px 69px 0 0;
 }
-.up-right form{
-    margin:18px 35px 37px 35px;
+
+.up-right form {
+    margin: 18px 35px 37px 35px;
 }
-.up-right form label{
-    color:#c3c2c2;
+
+.up-right form label {
+    color: #c3c2c2;
     display: block;
 }
-.up-right form input{
+
+.up-right form input {
     border: none;
     display: block;
 }
-.up-right form section:first-child{
-    width: 100%; 
+
+.up-right form section:first-child {
+    width: 100%;
     clear: both;
 }
-.up-right form section:first-child label,.up-right form section:first-child input{
+
+.up-right form section:first-child label,
+.up-right form section:first-child input {
     margin: 5px;
 }
-.up-right form section:nth-child(2){
+
+.up-right form section:nth-child(2) {
     width: 90px;
     float: left;
-    border:1px solid #aaaaaa;
+    border: 1px solid #aaaaaa;
     border-left: 0;
 }
-.up-right form section:nth-child(2) label{
+
+.up-right form section:nth-child(2) label {
     margin: 5px;
 }
-.up-right form section:nth-child(2) input{
+
+.up-right form section:nth-child(2) input {
     width: 80px;
     margin: 5px;
 }
-.up-right form section:nth-child(3){
+
+.up-right form section:nth-child(3) {
     width: 180px;
     float: left;
-    border:1px solid #aaaaaa;
+    border: 1px solid #aaaaaa;
     border-right: 0;
 }
-.up-right form section:nth-child(3) label{
-margin: 5px;
+
+.up-right form section:nth-child(3) label {
+    margin: 5px;
 }
-.up-right form section:nth-child(3) input{
-    width: 160px;margin: 5px;
+
+.up-right form section:nth-child(3) input {
+    width: 160px;
+    margin: 5px;
 }
-.up-right form section:nth-child(4) textarea{
+
+.up-right form section:nth-child(4) textarea {
     width: 260px;
     height: 120px;
     border: 0;
     border-bottom: 1px solid #aaaaaa;
 }
-.up-right form section:nth-child(4) label{
+
+.up-right form section:nth-child(4) label {
     margin: 5px;
 }
 
-.up-right form section:nth-child(5) label,.up-right form section:nth-child(5) input{
+.up-right form section:nth-child(5) label,
+.up-right form section:nth-child(5) input {
     display: inline-block;
     margin-top: 10px;
 }
-.up-right form section:nth-child(6){
+
+.up-right form section:nth-child(6) {
     float: right;
     position: relative;
-    top:-20px;
+    top: -20px;
 }
-.up-right form section:nth-child(6) input{
+
+.up-right form section:nth-child(6) input {
     height: 23px;
     width: 50px;
     background: #398bc2;
 }
 
+
 /*左下日历组件*/
-.down-left{
+
+.down-left {
     float: left;
-    position: relative;    
-    top:-360px;
+    position: relative;
+    top: -360px;
     left: 60px;
     height: 358px;
 }
-.down-left img{
+
+.down-left img {
     margin: 5px 20px 20px 20px;
 }
+
+
 /*右下排行榜*/
-.down-right{
+
+.down-right {
     float: left;
     position: relative;
-    top:-360px;
-    left:65px;
+    top: -360px;
+    left: 65px;
     width: 533px;
     height: 358px;
 }
-.down-right table{
-    border-collapse: collapse;   
-    margin: 10px 35px 0 35px; 
+
+.down-right table {
+    border-collapse: collapse;
+    margin: 10px 35px 0 35px;
     font: 12px "Simhei";
 }
-.down-right table td,.down-right table th{
-    border:1px solid #aaaaaa;
+
+.down-right table td,
+.down-right table th {
+    border: 1px solid #aaaaaa;
 }
 
-.down-right table tr>:nth-child(1){
+.down-right table tr>:nth-child(1) {
     width: 70px;
     height: 23px;
     text-align: center;
 }
-.down-right table tr>:nth-child(2){
+
+.down-right table tr>:nth-child(2) {
     width: 90px;
-    height: 23px;text-align: center;
+    height: 23px;
+    text-align: center;
 }
-.down-right table tr>:nth-child(3){
+
+.down-right table tr>:nth-child(3) {
     width: 290px;
     height: 23px;
     text-align: left;
     text-indent: 2em;
 }
-.down-right table tr>:nth-child(3) progress{
+
+.down-right table tr>:nth-child(3) progress {
     margin-left: 15px;
 }
-.down-right td{
+
+.down-right td {
     position: relative;
 }
+
+
 /*设置进度条大小、位置*/
-.bar{
+
+.bar {
     width: 165px;
     height: 5px;
     position: absolute;
     right: 20px;
-    top:10px;
+    top: 10px;
     background: #dddddd;
 }
-.progress{
+
+.progress {
     height: 100%;
 }
+
+
 /*以下是分别设置进度条的progress的颜色和宽度*/
-.down-right table tr:nth-child(2) .progress{
+
+.down-right table tr:nth-child(2) .progress {
     width: 75%;
-        background: #ed6e52;
+    background: #ed6e52;
 }
-.down-right table tr:nth-child(3) .progress{
+
+.down-right table tr:nth-child(3) .progress {
     width: 70%;
     background: #ef8150
 }
-.down-right table tr:nth-child(4) .progress{
+
+.down-right table tr:nth-child(4) .progress {
     width: 65%;
     background: #f19e4f;
 }
-.down-right table tr:nth-child(5) .progress{
+
+.down-right table tr:nth-child(5) .progress {
     width: 60%;
     background: #7ecaf0;
 }
-.down-right table tr:nth-child(6) .progress{
+
+.down-right table tr:nth-child(6) .progress {
     width: 55%;
     background: #7ecaf0;
 }
-.down-right table tr:nth-child(7) .progress{
+
+.down-right table tr:nth-child(7) .progress {
     width: 50%;
     background: #7ecaf0;
 }
-.down-right table tr:nth-child(8) .progress{
+
+.down-right table tr:nth-child(8) .progress {
     width: 45%;
     background: #7ecaf0;
 }
-.down-right table tr:nth-child(9) .progress{
+
+.down-right table tr:nth-child(9) .progress {
     width: 40%;
     background: #7ecaf0;
 }
-.down-right table tr:nth-child(10) .progress{
+
+.down-right table tr:nth-child(10) .progress {
     width: 35%;
     background: #7ecaf0;
 }
-.down-right table tr:nth-child(11) .progress{
+
+.down-right table tr:nth-child(11) .progress {
     width: 30%;
     background: #7ecaf0;
 }
+
+
 /*设置排名的鼠标事件*/
-.down-right tr:hover{
+
+.down-right tr:hover {
     background: #f4f5f6;
 }
 
+
 /*侧栏样式*/
+
 
 /*侧栏总体样式*/
 
@@ -808,7 +867,6 @@ aside {
     width: 260px;
     height: 100%;
     background: #2b2e3d;
-    
     position: absolute;
     top: 0;
     left: 0;
@@ -828,131 +886,154 @@ aside>div div:first-child {
     margin-left: 48px;
     margin-top: 20px;
 }
-aside>div div:first-child div{
+
+aside>div div:first-child div {
     width: 48px;
     height: 48px;
     border-radius: 53px;
-    background:#bababe;
+    background: #bababe;
     margin: 4px;
 }
 
+
 /*用户名*/
-aside>div{
+
+aside>div {
     position: relative;
 }
-aside>div  div:nth-child(2) {
+
+aside>div div:nth-child(2) {
     font: 16px "Simhei";
-    color:#ededef;
+    color: #ededef;
     position: absolute;
-    top:20px;
+    top: 20px;
     right: 90px;
 }
 
 
 /*收藏和粉丝*/
 
-aside>div  div:nth-child(3),aside>div  div:nth-child(4){
+aside>div div:nth-child(3),
+aside>div div:nth-child(4) {
     display: inline-block;
-        box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-
 }
 
-aside>div  div:nth-child(3) a,aside>div  div:nth-child(4) a{display: block;
-        box-sizing: border-box;
+aside>div div:nth-child(3) a,
+aside>div div:nth-child(4) a {
+    display: block;
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-width: 125px;
-    height:70px;
+    width: 125px;
+    height: 70px;
     color: #6e8095;
-    font:16px "Simhei";
+    font: 16px "Simhei";
     text-decoration: none;
 }
-aside>div  div:nth-child(3) a{
 
+aside>div div:nth-child(3) a {
     padding: 20px 10px 20px 70px;
 }
-aside>div  div:nth-child(4) a{
 
+aside>div div:nth-child(4) a {
     padding: 20px 0 20px 30px;
 }
-aside>div  div:nth-child(3) a span,aside>div  div:nth-child(4) a span{
-    font:12px "Simsun";
+
+aside>div div:nth-child(3) a span,
+aside>div div:nth-child(4) a span {
+    font: 12px "Simsun";
 }
+
 
 /*导航的样式*/
-aside nav ul{
+
+aside nav ul {
     list-style-type: none;
 }
-aside nav ul>li{
 
-}
+aside nav ul>li {}
+
+
 /*使链接区域都可点*/
 
 aside nav a {
     display: block;
-     box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font: 12px "Simhei",sans-serif;
+    font: 12px "Simhei", sans-serif;
     color: #6e8095;
-    height: 45px
-    padding: 12px 0 12px 50px;
-        text-decoration: none;
+    height: 45px padding: 12px 0 12px 50px;
+    text-decoration: none;
 }
-aside nav a{
-        height: 45px;
-    padding:15px 0 15px 45px;
+
+aside nav a {
+    height: 45px;
+    padding: 15px 0 15px 45px;
 }
+
+
 /*插入列表项前的图标*/
-aside nav>ul li:first-child span:before{
+
+aside nav>ul li:first-child span:before {
     content: url('个人报表.gif');
     padding-right: 12px;
 }
-aside nav>ul li:nth-child(2) span:before{
+
+aside nav>ul li:nth-child(2) span:before {
     content: url('收藏.gif');
     padding-right: 12px;
 }
-aside nav>ul li:nth-child(3) span:before{
+
+aside nav>ul li:nth-child(3) span:before {
     content: url('分享.gif');
     padding-right: 12px;
 }
-aside nav>ul li:nth-child(4) span:before{
+
+aside nav>ul li:nth-child(4) span:before {
     content: url('收藏.gif');
     padding-right: 12px;
 }
-aside nav>ul li:nth-child(5) span:before{
+
+aside nav>ul li:nth-child(5) span:before {
     content: url('收藏.gif');
     padding-right: 12px;
 }
-aside nav>ul li:nth-child(6) span:before{
+
+aside nav>ul li:nth-child(6) span:before {
     content: url('账户.gif');
     padding-right: 12px;
 }
+
+
 /*鼠标动态*/
 
 aside a:hover,
 aside a:active {
     color: #ededef;
-    background:#383d4e;
+    background: #383d4e;
 }
+
+
 /*低级菜单的样式*/
- 
-aside nav>ul>li:first-child>ul a{
+
+aside nav>ul>li:first-child>ul a {
     height: 38px;
 }
- 
-aside nav>ul>li:first-child>ul img{
+
+aside nav>ul>li:first-child>ul img {
     width: 10px;
-    height:10px;
+    height: 10px;
     padding-right: 8px;
 }
 
-aside nav>ul>li:first-child>ul>li>a{
+aside nav>ul>li:first-child>ul>li>a {
     padding-left: 70px;
 }
 
-aside nav>ul>li:first-child>ul>li:nth-child(2)>ul a{
+aside nav>ul>li:first-child>ul>li:nth-child(2)>ul a {
     padding-left: 110px;
 }
