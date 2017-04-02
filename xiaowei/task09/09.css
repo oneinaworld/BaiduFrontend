@@ -107,12 +107,19 @@ header form input {
     border: none;
 }
 
-
+/*container*/
+.container{
+    width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
 /*main的样式*/
 
 main {
     width: 1020px;
     background: #ededed;
+    margin-left: 260px;
 }
 
 
@@ -795,14 +802,16 @@ margin: 5px;
 
 /*侧栏样式*/
 
-
 /*侧栏总体样式*/
 
 aside {
     width: 260px;
-    background: ;
-    font: color: ;
-    float: left;
+    height: 100%;
+    background: #2b2e3d;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 
@@ -811,48 +820,139 @@ aside {
 
 /*头像样式*/
 
-aside div:first-child div:first-child {}
-
+aside>div div:first-child {
+    width: 58px;
+    height: 58px;
+    border-radius: 58px;
+    border: 1px solid #f6f5f5;
+    margin-left: 48px;
+    margin-top: 20px;
+}
+aside>div div:first-child div{
+    width: 48px;
+    height: 48px;
+    border-radius: 53px;
+    background:#bababe;
+    margin: 4px;
+}
 
 /*用户名*/
-
-aside div:first-child div:nth-child(2) {
-    color:
+aside>div{
+    position: relative;
+}
+aside>div  div:nth-child(2) {
+    font: 16px "Simhei";
+    color:#ededef;
+    position: absolute;
+    top:20px;
+    right: 90px;
 }
 
 
 /*收藏和粉丝*/
 
-aside div:first-child div:nth-child(3),
-aside div:first-child div:nth-child(4) {
+aside>div  div:nth-child(3),aside>div  div:nth-child(4){
     display: inline-block;
-    width: ；
+        box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
 }
 
+aside>div  div:nth-child(3) a,aside>div  div:nth-child(4) a{display: block;
+        box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+width: 125px;
+    height:70px;
+    color: #6e8095;
+    font:16px "Simhei";
+    text-decoration: none;
+}
+aside>div  div:nth-child(3) a{
+
+    padding: 20px 10px 20px 70px;
+}
+aside>div  div:nth-child(4) a{
+
+    padding: 20px 0 20px 30px;
+}
+aside>div  div:nth-child(3) a span,aside>div  div:nth-child(4) a span{
+    font:12px "Simsun";
+}
 
 /*导航的样式*/
+aside nav ul{
+    list-style-type: none;
+}
+aside nav ul>li{
 
-
+}
 /*使链接区域都可点*/
 
-aside a {
+aside nav a {
     display: block;
+     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font: 12px "Simhei",sans-serif;
+    color: #6e8095;
+    height: 45px
+    padding: 12px 0 12px 50px;
+        text-decoration: none;
 }
-
-
+aside nav a{
+        height: 45px;
+    padding:15px 0 15px 45px;
+}
+/*插入列表项前的图标*/
+aside nav>ul li:first-child span:before{
+    content: url('个人报表.gif');
+    padding-right: 12px;
+}
+aside nav>ul li:nth-child(2) span:before{
+    content: url('收藏.gif');
+    padding-right: 12px;
+}
+aside nav>ul li:nth-child(3) span:before{
+    content: url('分享.gif');
+    padding-right: 12px;
+}
+aside nav>ul li:nth-child(4) span:before{
+    content: url('收藏.gif');
+    padding-right: 12px;
+}
+aside nav>ul li:nth-child(5) span:before{
+    content: url('收藏.gif');
+    padding-right: 12px;
+}
+aside nav>ul li:nth-child(6) span:before{
+    content: url('账户.gif');
+    padding-right: 12px;
+}
 /*鼠标动态*/
 
 aside a:hover,
 aside a:active {
-    color: background；
+    color: #ededef;
+    background:#383d4e;
+}
+/*低级菜单的样式*/
+ 
+aside nav>ul>li:first-child>ul a{
+    height: 38px;
+}
+ 
+aside nav>ul>li:first-child>ul img{
+    width: 10px;
+    height:10px;
+    padding-right: 8px;
 }
 
-aside li ul {
-    /*暂时隐藏低级菜单*/
-    display: none;
+aside nav>ul>li:first-child>ul>li>a{
+    padding-left: 70px;
 }
 
-
-/*导航的动作*/
-
-aside nav
+aside nav>ul>li:first-child>ul>li:nth-child(2)>ul a{
+    padding-left: 110px;
+}
