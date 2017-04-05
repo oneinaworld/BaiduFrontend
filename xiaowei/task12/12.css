@@ -1,0 +1,53 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*背景效果*/
+body> div:nth-child(1) table th{
+	background: black;
+	color: white;
+}
+body> div:nth-child(1) table tr:nth-child(2), body> div:nth-child(1) table tr:nth-child(3),body> div:nth-child(1) table tr:nth-child(4){
+	color: red;
+}
+body> div:nth-child(1) table tr:nth-child(odd){
+	background: lightgrey;
+}
+/*搜索框效果*/
+body> div:nth-child(2) div>input{
+	width: 200px;
+	transition: width 2s;
+}
+body> div:nth-child(2) div>input:hover{
+	width: 400px;	
+}
+/*动画背景效果*/
+body> div:nth-child(3)>div{
+	width: 400px;
+	height: 300px;
+	position: relative;
+}
+body> div:nth-child(3)>div>div>div{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	background: white;
+	opacity:0.6;
+}
+body> div:nth-child(3)>div>div>div p{
+	line-height: 1.8em;
+}
+body> div:nth-child(3)>div>div{
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+@keyframes backgroundtransition
+{
+from {background: green;}
+to {background: blue;}
+}
+body> div:nth-child(3)>div{
+	animation: backgroundtransition 5s 10;
+}
