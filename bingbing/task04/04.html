@@ -24,14 +24,36 @@
 	<ul id="result">
 	</ul>
 	<script>
-	function  leftin(){
+	function leftin(){
 		var data=document.getElementById('data').value;
 		var result=document.getElementById('result');
 		li=document.createElement('li');
 		li.innerHTML=('<li>'+data+'</li>');
 		result.insertBefore(li,result.firstChild);
 	}
+	function rightin(){
+		var data=document.getElementById('data').value;
+		var result=document.getElementById('result');
+		li=document.createElement('li');
+		li.innerHTML=('<li>'+data+'</li>');
+		result.appendChild(li);
+	}
+	function leftout(){
+		var result=document.getElementById('result');
+		var data=result.firstChild.innerText;
+		alert("移除"+data);
+		result.removeChild(result.firstChild);
+	}
+	function rightout(){
+		var result=document.getElementById('result');
+		var data=result.lastChild.innerText;
+		alert("移除"+data);
+		result.removeChild(result.lastChild);
+	}
 	document.getElementById('leftin').onclick=leftin;
+	document.getElementById('rightin').onclick=rightin;
+	document.getElementById('leftout').onclick=leftout;
+	document.getElementById('rightout').onclick=rightout;
 	</script>
 </body>
 </html>
