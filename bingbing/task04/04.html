@@ -21,8 +21,7 @@
 	<button id="rightin">右侧入</button>
 	<button id="leftout">左侧出</button>
 	<button id="rightout">右侧出</button>
-	<ul id="result">
-	</ul>
+	<ul id="result"><li>56</li></ul>
 	<script>
 	function leftin(){
 		var data=document.getElementById('data').value;
@@ -31,7 +30,7 @@
 		}else{
 			var result=document.getElementById('result');
 			li=document.createElement('li');
-			li.innerHTML=('<li>'+data+'</li>');
+			li.innerHTML=data;
 			result.insertBefore(li,result.firstChild);
 		}
 	}
@@ -42,7 +41,7 @@
 		}else{
 			var result=document.getElementById('result');
 			li=document.createElement('li');
-			li.innerHTML=('<li>'+data+'</li>');
+			li.innerHTML=data;
 			result.appendChild(li);
 		}
 	}
@@ -64,6 +63,28 @@
 	document.getElementById('leftout').onclick=leftout;
 	document.getElementById('rightout').onclick=rightout;
 
+	// 点击ul中的元素，消失
+	// 这种方式对页面加载后添加的数字无效
+	// 但https://github.com/DogIdea/baiduife/blob/master/js4.html这里是这样写的，有效，为什么？
+	// (function(){
+	// 	var result=document.getElementById('result');
+	// 	var lis=result.getElementsByTagName("li");
+	// 	for(var i=0;i<lis.length;i++){
+	//     	lis[i].addEventListener( "click",function(){
+	//     	result.removeChild(this);
+ //        })
+ //      }
+	// })()
+	(function(){
+		var result=document.getElementById('result');
+		// 以下是借鉴的https://github.com/smallstar92/baidutask-2017/blob/gh-pages/binbinxueyuan/task4/scripts/task_1_4_1.js
+        result.addEventListener("click",function(e){
+		var event = window.event || e;
+		if(event.target.nodeName.toLowerCase()=="li"){
+		    result.removeChild(event.target);
+		}
+		})
+	})()
 	</script>
 </body>
 </html>
