@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04 队列练习</title>
+    <style>
+    ul li {
+        display: inline-block;
+        list-style-type: none;
+        background-color: red;
+        color: white;
+        box-sizing: border-box;
+        padding: 0.5em;
+        margin: 0 0.5em;
+    }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="data" cols="30" rows="5">允许一次批量输入多个内容，格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔</textarea>
+    <button id="leftin">左侧入</button>
+    <button id="rightin">右侧入</button>
+    <button id="leftout">左侧出</button>
+    <button id="rightout">右侧出</button>
+    <input type="text" id="data1">
+    <br>
+    <button id="check">查询</button>
+    <ul id="result">
+        <li>56</li>
+    </ul>
+    <script>
+    function leftin() {
+        // 得到textarea中输入的内容
+        var data = document.getElementById('data').value;
+        // 处理data
+        var data1 = data.split(/[,_.，。 、\n]/);
+
+        var result = document.getElementById('result');
+        for (var i = 0; i < data1.length; i++) {
+            var li = document.createElement('li')
+            li.innerHTML = data1[i];
+            result.insertBefore(li, result.firstChild);
+        }
+
+    }
+
+    function rightin() {
+        // 得到textarea中输入的内容
+        var data = document.getElementById('data').value;
+        // 处理data
+        var data1 = data.split(/[,_.，。 、\n]/);
+
+        var result = document.getElementById('result');
+        for (var i = 0; i < data1.length; i++) {
+            var li = document.createElement('li')
+            li.innerHTML = data1[i];
+            result.appendChild(li);
+        }
+    }
+
+    function leftout() {
+        var result = document.getElementById('result');
+        var data = result.firstChild.innerText;
+        alert("移除" + data);
+        result.removeChild(result.firstChild);
+    }
+
+    function rightout() {
+        var result = document.getElementById('result');
+        var data = result.lastChild.innerText;
+        alert("移除" + data);
+        result.removeChild(result.lastChild);
+    }
+
+    document.getElementById('leftin').onclick = leftin;
+    document.getElementById('rightin').onclick = rightin;
+    document.getElementById('leftout').onclick = leftout;
+    document.getElementById('rightout').onclick = rightout;
+
+
+    (function() {
+        var result = document.getElementById('result');
+        // 以下是借鉴的https://github.com/smallstar92/baidutask-2017/blob/gh-pages/binbinxueyuan/task4/scripts/task_1_4_1.js
+        result.addEventListener("click", function(e) {
+            var event = window.event || e;
+            if (event.target.nodeName.toLowerCase() == "li") {
+                result.removeChild(event.target);
+            }
+        })
+    })()
+
+    // 查询功能（当点击查询时，将查询词在各个元素内容中做模糊匹配，将匹配到的内容进行特殊标识，如文字颜色等。举例，内容中有abcd，查询词为ab或bc，则该内容需要标识）
+    function check() {
+        // 获取要搜索的内容
+        var data = document.getElementById('data1').value;
+        var lis = document.getElementById('result').childNodes;
+        // var arr=[];
+        // for (var i = 0; i < result.length; i++) {
+        //  	arr[i]=result[i].value
+        //  } 
+        // 匹配
+        // 参考https://github.com/DogIdea/baiduife/blob/master/js6.html
+        for (var i = 0; i < lis.length; i++) { //遍历数字列表
+            var inquiry = lis[i].innerHTML; //取得每一项中的内容
+            if (inquiry.indexOf(data) > -1) {
+                lis[i].style.backgroundColor = "blue";
+            } else {
+                lis[i].style.backgroundColor = "red";
+            }
+        }
+
+
+
+    }
+    document.getElementById('check').onclick = check;
+
+    //输入内容时textarea清空
+    document.getElementsByTagName('textarea')[0].onfocus = function() {
+        this.innerHTML = ''
+    }
+    </script>
+</body>
+
+</html>
