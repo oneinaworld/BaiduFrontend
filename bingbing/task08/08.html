@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务八：JavaScript和树（二）</title>
+    <style>
+    div {
+        border: 2px solid black;
+        overflow: auto;
+        padding: 3px;
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        d
+        <div>
+            e
+            <div>
+                d
+                <div>e</div>
+                <div>f</div>
+                <div>c</div>
+                <div>a</div>
+            </div>
+            <div>a</div>
+            <div>
+                d
+                <div>a</div>
+                <div>c</div>
+                <div>b</div>
+            </div>
+        </div>
+        <div>
+            g
+            <div>c
+                <div>b
+                    <div>e</div>
+                    <div>f</div>
+                    <div>c</div>
+                </div>
+                <div>b
+                    <div>g
+                        <div>b</div>
+                    </div>
+                    <div>e</div>
+                </div>
+            </div>
+            <div>f</div>
+        </div>
+    </div>
+    <br>
+    <button>遍历</button>
+    <br>
+    <input type="text" id="data">
+    <button>查询</button>
+    <ul id="out"></ul>
+    <script>
+    // 中序遍历
+    // 计时器
+    var timer = null;
+
+    // 背景动画
+    function change() {
+        var i = 0;
+        //元素一背景先设为红色
+        arr[i].style.backgroundColor = 'red';
+        timer = setInterval(
+            function() {
+                i++;
+                //当背景变色后，重置前一元素背景色
+                if (i < arr.length) {
+                    arr[i].style.backgroundColor = 'red';
+                    arr[i - 1].style.backgroundColor = 'white';
+                } else {
+                    //遍历完成后，清除定时器，重置最后一个背景色
+                    clearInterval(timer);
+                    arr[arr.length - 1].style.backgroundColor = 'white';
+                }
+            }, 1000)
+    }
+
+    //重置背景色和数组
+    function reset() {
+        arr = [];
+        clearInterval(timer);
+        var divs = document.getElementsByTagName('div');
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.backgroundColor = 'white'
+        }
+    }
+
+    // 遍历多叉树函数
+    function preOrder(node) {
+        if (node === null) { //判断node是否为null
+            return
+        }
+        arr.push(node); //将node自身传入callback
+        node = node.firstElementChild; //改变node为其子元素节点
+        while (node) {
+            preOrder(node); //如果存在子元素，则递归调用walkDom
+            node = node.nextElementSibling //从头到尾遍历元素节点
+        }
+
+        // if (node.firstElementChild.nextElementSibling !== null) {
+        //     preOrder(node.firstElementChild.nextElementSibling);//这里一直报错，不知道为什么
+        // }
+    }
+
+
+    var root = document.getElementsByTagName('div')[0];
+    var arr = [];
+
+    document.getElementsByTagName('button')[0].onclick = function() {
+        reset();
+        preOrder(root);
+        change()
+    }
+
+    // 查询
+    function check(node) {
+        var data = document.getElementById('data').value;
+        var text=node.innerText
+        if (node === null || data == null) { //判断node是否为null
+            return
+        }
+        //先遍历
+        if (text == data) {
+            arr.push(node);
+        }
+        node = node.firstElementChild; //改变node为其子元素节点
+        while (node) {
+            check(node); //如果存在子元素，则递归调用walkDom
+            node = node.nextElementSibling //从头到尾遍历元素节点
+        }
+    }
+    document.getElementsByTagName('button')[1].onclick = function() {
+        reset();
+        check(root);
+        change();
+    };
+    </script>
+</body>
+
+</html>
