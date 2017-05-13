@@ -89,13 +89,13 @@
 
     //前序遍历函数
     function preOrder(node) {
-        if (node != null) {
+        if (node !== null) {
             arr.push(node);
             if (node.firstElementChild !== null) {
                 preOrder(node.firstElementChild);
             }
-            if (node.lastElementChild !== null) {
-                preOrder(node.lastElementChild);
+            if (node.firstElementChild.nextElementSibling !== null) {
+                preOrder(node.firstElementChild.nextElementSibling);
             }
         }
     }
