@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务七：JavaScript和树（一）</title>
+    <style>
+    div {
+        border: 3px solid black;
+        overflow: auto;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 10px;
+    }
+    
+    div>div>div>div {
+        width: 50px;
+        height: 25px;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button>前序遍历</button>
+    <button>中序遍历</button>
+    <button>后序遍历</button>
+    <script>
+    /* 三种遍历是模仿学友的代码做出来的，
+        		由于对数据结构完全不懂。
+        		所以找了比较简洁的。
+        		https://github.com/yy523697597/ifeJS/blob/master/task07/task07.html
+        		借鉴。。。
+        		*/
+    // 计时器
+    var timer = null;
+
+    // 背景动画
+    function change() {
+        var i = 0;
+        //元素一背景先设为红色
+        arr[i].style.backgroundColor = 'red';
+        timer = setInterval(
+            function() {
+                i++;
+                //当背景变色后，重置前一元素背景色
+                if (i < arr.length) {
+                    arr[i].style.backgroundColor = 'red';
+                    arr[i - 1].style.backgroundColor = 'white';
+                } else {
+                    //遍历完成后，清除定时器，重置最后一个背景色
+                    clearInterval(timer);
+                    arr[arr.length - 1].style.backgroundColor = 'white';
+                }
+            }, 1000)
+    }
+
+    //重置背景色和数组
+    function reset() {
+        arr = [];
+        clearInterval(timer);
+        var divs = document.getElementsByTagName('div');
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.backgroundColor = 'white'
+        }
+    }
+
+    //前序遍历函数
+    function preOrder(node) {
+        if (node != null) {
+            arr.push(node);
+            if (node.firstElementChild !== null) {
+                preOrder(node.firstElementChild);
+            }
+            if (node.lastElementChild !== null) {
+                preOrder(node.lastElementChild);
+            }
+        }
+    }
+    //中序遍历函数
+    function inOrder(node) {
+        if (node !== null) {
+            if (node.firstElementChild !== null) {
+                inOrder(node.firstElementChild)
+            }
+            arr.push(node);
+            if (node.lastElementChild !== null) {
+                inOrder(node.lastElementChild)
+            }
+        }
+    }
+    //后序遍历
+    function postOrder(node) {
+        if (node !== null) {
+            if (node.firstElementChild !== null) {
+                postOrder(node.firstElementChild)
+            }
+            if (node.lastElementChild !== null) {
+                postOrder(node.lastElementChild)
+            }
+            arr.push(node)
+        }
+    }
+
+    //页面添加响应
+    var root = document.getElementsByTagName('div')[0];
+    var arr = [];
+    //添加按钮响应
+    document.getElementsByTagName('button')[0].onclick = function() {
+        reset();
+        preOrder(root);
+        change()
+    }
+    document.getElementsByTagName('button')[1].onclick = function() {
+        reset();
+        inOrder(root);
+        change()
+    }
+    document.getElementsByTagName('button')[2].onclick = function() {
+        reset();
+        postOrder(root);
+        change()
+    }
+    </script>
+</body>
+
+</html>
