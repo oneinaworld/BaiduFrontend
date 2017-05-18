@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>耀耀任务二：表单（二）多个表单项的动态校验</title>
+    <style>
+    * {
+        font: 25px "Simhei";
+    }
+    
+    li {
+        list-style-type: none;
+        margin: 10px;
+    }
+    
+    div {
+        display: inline-block;
+        margin-left: 5px;
+    }
+    
+    div>div {
+        display: block;
+        font-size: 16px;
+        margin: 5px;
+    }
+    
+    label {
+        /*以下4条是名称对齐的要点*/
+        text-align: right;
+        vertical-align: top;
+        display: inline-block;
+        width: 100px;
+    }
+    
+    input {
+        height: 1.5em;
+        border-radius: 5px;
+        border: 1.5px solid gray;
+    }
+    
+    button {
+        margin-left: 350px;
+        border-radius: 5px;
+        background-color: blue;
+        border-style: none;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <label for="">姓名</label>
+            <div>
+                <input type="text">
+                <div></div>
+            </div>
+        </li>
+        <li>
+            <label for="">密码</label>
+            <div>
+                <input type="text">
+                <div></div>
+            </div>
+        </li>
+        <li>
+            <label for="">密码确认</label>
+            <div>
+                <input type="text">
+                <div></div>
+            </div>
+        </li>
+        <li>
+            <label for="">邮箱</label>
+            <div>
+                <input type="text">
+                <div></div>
+            </div>
+        </li>
+        <li>
+            <label for="">手机</label>
+            <div>
+                <input type="text">
+                <div></div>
+            </div>
+        </li>
+    </ul>
+    <button>提交</button>
+    <script>
+    // 获得焦点时，出现提示
+    document.getElementsByTagName('input')[0].onclick = function() {
+        document.getElementsByTagName('div')[1].innerHTML = '必填，长度为4~16个字符';
+        document.getElementsByTagName('div')[1].style.color = 'gray'
+    }
+    document.getElementsByTagName('input')[1].onclick = function() {
+        document.getElementsByTagName('div')[3].innerHTML = '必填，长度为6个字符以上';
+        document.getElementsByTagName('div')[3].style.color = 'gray'
+    }
+    document.getElementsByTagName('input')[2].onclick = function() {
+        document.getElementsByTagName('div')[5].innerHTML = '';
+        document.getElementsByTagName('div')[5].style.color = 'gray'
+    }
+    document.getElementsByTagName('input')[3].onclick = function() {
+        document.getElementsByTagName('div')[7].innerHTML = '必填';
+        document.getElementsByTagName('div')[7].style.color = 'gray'
+    }
+    document.getElementsByTagName('input')[4].onclick = function() {
+            document.getElementsByTagName('div')[9].innerHTML = '必填，长度为11位，不含区号';
+            document.getElementsByTagName('div')[9].style.color = 'gray'
+        }
+    // 表单失去焦点时，出现验证信息
+    document.getElementsByTagName('input')[0].onblur = function() {
+        var input = this.value;
+        if (input == '') {
+            document.getElementsByTagName('div')[1].innerHTML = '名称不能为空';
+            document.getElementsByTagName('div')[1].style.color = 'red';
+        } else {
+            document.getElementsByTagName('div')[1].innerHTML = '名称正确';
+            document.getElementsByTagName('div')[1].style.color = 'green';
+        }
+    }
+    document.getElementsByTagName('input')[1].onblur = function() {
+        var input = this.value;
+        if (input == '') {
+            document.getElementsByTagName('div')[3].innerHTML = '不能为空';
+            document.getElementsByTagName('div')[3].style.color = 'red';
+        } else if(input.length<6){
+        	document.getElementsByTagName('div')[3].innerHTML = '长度必须大于6';
+            document.getElementsByTagName('div')[3].style.color = 'red';
+        }else {
+            document.getElementsByTagName('div')[3].innerHTML = '正确';
+            document.getElementsByTagName('div')[3].style.color = 'green';
+        }
+    }
+    document.getElementsByTagName('input')[2].onblur = function() {
+        var input = this.value;
+        if (input == '') {
+            document.getElementsByTagName('div')[5].innerHTML = '不能为空';
+            document.getElementsByTagName('div')[5].style.color = 'red';
+        } else if(input.length<6){
+        	document.getElementsByTagName('div')[5].innerHTML = '长度必须大于6';
+            document.getElementsByTagName('div')[5].style.color = 'red';
+        }else if(input!==document.getElementsByTagName('input')[1].value){
+        	document.getElementsByTagName('div')[5].innerHTML = '与上一密码输入不符';
+            document.getElementsByTagName('div')[5].style.color = 'red';
+        }else {
+            document.getElementsByTagName('div')[5].innerHTML = '正确';
+            document.getElementsByTagName('div')[5].style.color = 'green';
+        }
+    }
+    document.getElementsByTagName('input')[3].onblur = function() {
+        var input = this.value;
+        var apos=value.indexOf("@");
+        var dotpos=value.lastIndexOf(".");
+        if (input == '') {
+            document.getElementsByTagName('div')[7].innerHTML = '邮箱不能为空';
+            document.getElementsByTagName('div')[7].style.color = 'red';
+        } else if(apos<1||dotpos-apos<2) { //输入的数据必须包含 @ 符号和点号(.)。同时，@ 不可以是邮件地址的首字符，并且 @ 之后需有至少一个点号
+            document.getElementsByTagName('div')[7].innerHTML = '邮箱格式不对';
+            document.getElementsByTagName('div')[7].style.color = 'red';
+        }else {
+            document.getElementsByTagName('div')[7].innerHTML = '正确';
+            document.getElementsByTagName('div')[7].style.color = 'green';
+        }
+    }
+    document.getElementsByTagName('input')[4].onblur = function() {
+        var input = this.value;
+        if (input == '') {
+            document.getElementsByTagName('div')[9].innerHTML = '电话不能为空';
+            document.getElementsByTagName('div')[9].style.color = 'red';
+        } else if(input.length!==11){
+        	document.getElementsByTagName('div')[9].innerHTML = '电话位数必须为11位';
+            document.getElementsByTagName('div')[9].style.color = 'red';
+        }else {
+            document.getElementsByTagName('div')[9].innerHTML = '名称正确';
+            document.getElementsByTagName('div')[9].style.color = 'green';
+        }
+    }
+    // 点击提交按钮，全局效验
+    document.getElementsByTagName('button')[0].onclick=function(){
+    	var name=document.getElementsByTagName('input')[0].value;
+    	var password=document.getElementsByTagName('input')[1].value;
+    	var passwordagain=document.getElementsByTagName('input')[2].value;
+    	var email=document.getElementsByTagName('input')[3].value;
+    	var phone=document.getElementsByTagName('input')[4].value;
+    	var pass=false;
+    	if (name == '') {
+            document.getElementsByTagName('div')[1].innerHTML = '名称不能为空';
+            document.getElementsByTagName('div')[1].style.color = 'red';
+            pass=false
+        } else {
+            document.getElementsByTagName('div')[1].innerHTML = '名称正确';
+            document.getElementsByTagName('div')[1].style.color = 'green';
+            pass=true;
+        }
+        if (password == '') {
+            document.getElementsByTagName('div')[3].innerHTML = '不能为空';
+            document.getElementsByTagName('div')[3].style.color = 'red';
+            pass=false
+        } else if(password.length<6){
+        	document.getElementsByTagName('div')[3].innerHTML = '长度必须大于6';
+            document.getElementsByTagName('div')[3].style.color = 'red';
+            pass=false
+        }else {
+            document.getElementsByTagName('div')[3].innerHTML = '正确';
+            document.getElementsByTagName('div')[3].style.color = 'green';
+            pass=true;
+        }
+        if (passwordagain == '') {
+            document.getElementsByTagName('div')[5].innerHTML = '不能为空';
+            document.getElementsByTagName('div')[5].style.color = 'red';
+            pass=false
+        } else if(passwordagain.length<6){
+        	document.getElementsByTagName('div')[5].innerHTML = '长度必须大于6';
+            document.getElementsByTagName('div')[5].style.color = 'red';
+            pass=false
+        }else if(passwordagain!==document.getElementsByTagName('input')[1].value){
+        	document.getElementsByTagName('div')[5].innerHTML = '与上一密码输入不符';
+            document.getElementsByTagName('div')[5].style.color = 'red';
+            pass=false
+        }else {
+            document.getElementsByTagName('div')[5].innerHTML = '正确';
+            document.getElementsByTagName('div')[5].style.color = 'green';
+            pass=true
+        }
+    	if (email == '') {
+            document.getElementsByTagName('div')[7].innerHTML = '邮箱不能为空';
+            document.getElementsByTagName('div')[7].style.color = 'red';
+            pass=false
+        } else {
+            document.getElementsByTagName('div')[7].innerHTML = '正确';
+            document.getElementsByTagName('div')[7].style.color = 'green';
+            pass=false
+        }
+        if (phone == '') {
+            document.getElementsByTagName('div')[9].innerHTML = '电话不能为空';
+            document.getElementsByTagName('div')[9].style.color = 'red';
+            pass=false
+        } else if(phone.length!==11){
+        	document.getElementsByTagName('div')[9].innerHTML = '电话位数必须为11位';
+            document.getElementsByTagName('div')[9].style.color = 'red';
+            pass=false
+        }else {
+            document.getElementsByTagName('div')[9].innerHTML = '名称正确';
+            document.getElementsByTagName('div')[9].style.color = 'green';
+            pass=true
+        }
+        if(pass==true){
+        	alert("提交成功！")
+        }else{
+        	alert("提交失败！")
+        }
+        return pass
+    }
+    </script>
+</body>
+
+</html>
