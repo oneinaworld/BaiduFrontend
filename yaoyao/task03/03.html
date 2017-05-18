@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>耀耀任务三：表单（三）联动</title>
+    <style>
+    div:last-child {
+        display: none;
+    }
+    
+    select:last-child {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 参考一https://github.com/DogIdea/baiduife/blob/master/zonghe3.html 内容由dom写、操作
+	参考二https://github.com/Fxb1rd/ife2017/blob/master/yaoyao/task3/index.html 内容由html写，由dom操作。现用这一种。
+	-->
+    <form>
+        <input type="radio" id="student" checked="checked" name="1">
+        <label for="student">在校生</label>
+        <input type="radio" id="nonstudent" name="1">
+        <label for="nonstudent">非在校生</label>
+        <div>
+            <label for="school">学校</label>
+            <select id="city">
+                <option value="beijing">北京</option>
+                <option value="wuhan">武汉</option>
+            </select>
+            <select name="" id="">
+                <option value="beida">北京大学</option>
+                <option value="qinghua">清华大学</option>
+                <option value="renda">人民大学</option>
+            </select>
+            <select name="" id="">
+                <option value="">武汉大学</option>
+                <option value="">华中科技大学</option>
+                <option value="">华中师范大学</option>
+            </select>
+        </div>
+        <div>
+            <label for="company">就业单位</label>
+            <input type="text" id="company">
+        </div>
+    </form>
+    <script>
+    window.onload = function() {
+	    // 在在校生和非在校生之间切换
+        document.getElementsByTagName('input')[0].onchange = function() {
+            document.getElementsByTagName('div')[0].style.display = "block";
+            document.getElementsByTagName('div')[1].style.display = "none";
+        }
+        document.getElementsByTagName('input')[1].onchange = function() {
+            document.getElementsByTagName('div')[1].style.display = "block";
+            document.getElementsByTagName('div')[0].style.display = "none";
+        }
+
+        // 不同城市变换不同学校列表
+        document.getElementsByTagName('select')[0].onchange = function() {
+            var city = document.getElementById('city').value;
+            switch (city) {
+                case "beijing":
+                    document.getElementsByTagName('select')[1].style.display = 'inline-block';
+                    document.getElementsByTagName('select')[2].style.display = 'none';
+                    break;
+                case "wuhan":
+                    document.getElementsByTagName('select')[2].style.display = 'inline-block';
+                    document.getElementsByTagName('select')[1].style.display = 'none';
+                    break;
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
