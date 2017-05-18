@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>耀耀任务一：表单格式验证</title>
+    <style>
+    * {
+        font: 25px "Simhei";
+    }
+    
+    input,
+    button {
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        border-style: none;
+    }
+    
+    input {
+        border: 1px solid grey;
+    }
+    
+    input:focus {
+        border: 1px solid blue;
+    }
+    
+    button {
+        background-color: blue;
+    }
+    
+    div {
+        color: gray;
+    }
+    </style>
+</head>
+
+<body>
+    <span>名称</span>
+    <input type="text">
+    <button>验证</button>
+    <div>必填，长度为4~16个字符</div>
+    <script>
+    // function check(){
+    document.getElementsByTagName('button')[0].onclick = function() {
+            // var allowsubmit=true;
+            var div = document.getElementsByTagName('div')[0];
+            var input = document.getElementsByTagName('input')[0].value;
+            if (input == '') {
+                div.innerHTML = '不能为空';
+                div.style.color = 'red';
+                document.getElementsByTagName('input')[0].style.border = '1px solid red';
+                // allowsubmit=false;
+            } else if (input.length < 4 || input.length > 16) {
+                div.innerHTML = '长度必须在4~16个字符内';
+                div.style.color = 'red';
+                document.getElementsByTagName('input')[0].style.border = '1px solid red';
+                // allowsubmit=false;
+            } else {
+                // if(allowsubmit) {
+                div.innerHTML = '格式正确';
+                div.style.color = 'green';
+                document.getElementsByTagName('input')[0].style.border = '1px solid green';
+            }
+            // return allowsubmit;
+        }
+        // }
+        // window.onload=check;
+    </script>
+</body>
+
+</html>
