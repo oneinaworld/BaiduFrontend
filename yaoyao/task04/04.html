@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>耀耀任务四：听指令的小方块（一）</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    td {
+        border: 1px solid #000;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        /* position: relative; */
+    }
+    
+    .clear_border {
+        border: none;
+    }
+    
+    .newDiv {
+        background: #f00;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    .original{
+        position: relative;
+    }  
+
+    .front {
+        background: #00f;
+        width: 50px;
+        height: 10px;
+        top: 0;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 用表格实现格子空间 -->
+    <table>
+    </table>
+    <br>
+    <input type="text">
+    <button>输入</button>
+    <p>这是一个类似棋盘的格子空间，每个格子用两个数字可以定位，一个红正方形的DOM在这个空间内，正方形中的蓝色边表示这是他的正面
+        <br>可输入如下指令，正方形做相应动作：
+        <br> GO：向蓝色边所面向的方向前进一格（一格等同于正方形的边长）
+        <br> TUN LEF：向左转（逆时针旋转90度）
+        <br> TUN RIG：向右转（顺时针旋转90度）
+        <br> TUN BAC：向后转（旋转180度）</p>
+    <script>
+    // 用js写表格的行、列
+    // 参考https://github.com/cwjieIFE/cwjieIFE.github.io/blob/master/ife2017/view4/practice04/task.js
+    (function createTable() {
+        var tr_arr = [];
+        for (var i = 0; i <= 10; i++) {
+            tr_arr[i] = document.createElement("tr"); //创建10个<tr>,放入数组
+            for (var j = 0; j <= 10; j++) {
+                var td_arr = [];
+                td_arr[j] = document.createElement("td"); //每一个<tr>,创建10个<td>
+
+                if (i == 0) { //第一排，无边框
+                    td_arr[j].setAttribute("class", "clear_border");
+                    if (j > 0) //从第二列开始，加数字
+                        td_arr[j].innerHTML = j;
+
+                }
+                if (j == 0) { //第一列无边框
+                    td_arr[0].setAttribute('class',
+                        'clear_border');
+                    if (i > 0) //
+                        td_arr[0].innerHTML = i;
+                }
+
+                tr_arr[i].appendChild(td_arr[j]);
+            }
+            document.getElementsByTagName(
+                'table')[0].appendChild(tr_arr[i]);
+        }
+        // 新建DOM，棋子
+        var newDiv = document.createElement(
+            'div');
+        var table = document.getElementsByTagName('table')[0];
+        // 放入一个td中
+        table.childNodes[6].childNodes[4].appendChild(newDiv);
+        table.childNodes[6].childNodes[4].className = 'original';
+        newDiv.setAttribute(
+            'class', 'newDiv');
+        // DOM建一个正面
+        var front = document.createElement('div');
+        front.setAttribute('class', 'front');
+        newDiv.appendChild(front);
+
+        // 棋子的动作，参考https://github.com/yy523697597/IFE-yaoayo/blob/master/task04.html
+        var k = 0;
+        document.getElementsByTagName('button')[0].onclick = function() {
+            switch (document.getElementsByTagName('input')[0].value.toUpperCase()) {
+                case 'TUN LEF':
+                    k--;
+                    newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    break;
+                case 'TUN BAC':
+                    k -= 2;
+                    newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    break;
+                case 'TUN RIG':
+                    k++;
+                    newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    break;
+                case 'GO':
+                	if(k%4==0){
+                        if(newDiv.offsetTop>-51*4){
+                            newDiv.style.top = (newDiv.offsetTop - 51) + 'px';
+                        };
+                	};
+                    if(k%4==-2||k%4==2){
+                        if(newDiv.offsetTop<51*5){
+                            newDiv.style.top = (newDiv.offsetTop + 51) + 'px';
+                        };
+                	};
+                    if(k%4==-1||k%4==3){
+                        if(newDiv.offsetLeft>-51*3){
+                            newDiv.style.left = (newDiv.offsetLeft - 51) + 'px';
+                        };
+                	};
+                    if(k%4==1||k%4==-3){
+                        if(newDiv.offsetLeft<51*6){
+                            newDiv.style.left = (newDiv.offsetLeft + 51) + 'px';
+                        };
+                	};
+            }
+        }
+    })()
+    </script>
+</body>
+
+</html>

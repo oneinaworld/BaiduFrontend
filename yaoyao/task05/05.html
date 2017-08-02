@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务五：听指令的小方块（二）</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    td {
+        border: 1px solid #000;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        position: relative; 
+    }
+    
+    .clear_border {
+        border: none;
+    }
+    
+    .newDiv {
+        background: #f00;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 204px;
+        top: 255px;
+        transition: 1s;
+    }
+    
+    .original{
+         /* position: relative;  */
+    }  
+
+    .front {
+        background: #00f;
+        width: 50px;
+        height: 10px;
+        top: 0;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 用表格实现格子空间 -->
+    <table>
+    </table>
+    <br>
+    <input type="text">
+    <button>输入</button>
+    <p>这是一个类似棋盘的格子空间，每个格子用两个数字可以定位，一个红正方形的DOM在这个空间内，正方形中的蓝色边表示这是他的正面
+        <br>可输入如下指令，正方形做相应动作：
+        <br> GO：向蓝色边所面向的方向前进一格（一格等同于正方形的边长）
+        <br> TUN LEF：向左转（逆时针旋转90度）
+        <br> TUN RIG：向右转（顺时针旋转90度）
+        <br> TUN BAC：向后转（旋转180度）
+        <br>TRA LEF：向屏幕的左侧移动一格，方向不变
+        <br>TRA TOP：向屏幕的上面移动一格，方向不变
+        <br>TRA RIG：向屏幕的右侧移动一格，方向不变
+        <br>TRA BOT：向屏幕的下面移动一格，方向不变
+        <br>MOV LEF：方向转向屏幕左侧，并向屏幕的左侧移动一格
+        <br>MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格
+        <br>MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格
+        <br>MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格</p>
+    <script>
+    /*对于正方形的移动增加相应动画，包括移动和旋转
+    每个指令的执行时间是1s（可以自己调整）
+    增加新的指令如下：
+    TRA LEF：向屏幕的左侧移动一格，方向不变
+    TRA TOP：向屏幕的上面移动一格，方向不变
+    TRA RIG：向屏幕的右侧移动一格，方向不变
+    TRA BOT：向屏幕的下面移动一格，方向不变
+    MOV LEF：方向转向屏幕左侧，并向屏幕的左侧移动一格
+    MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格
+    MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格
+    MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格
+
+    解决：改relative元素。直接对table定位。
+    bug为加上动画后重复点击指令问题。
+    */
+    (function createTable() {
+        var tr_arr = [];
+        for (var i = 0; i <= 10; i++) {
+            tr_arr[i] = document.createElement("tr"); //创建10个<tr>,放入数组
+            for (var j = 0; j <= 10; j++) {
+                var td_arr = [];
+                td_arr[j] = document.createElement("td"); //每一个<tr>,创建10个<td>
+
+                if (i == 0) { //第一排，无边框
+                    td_arr[j].setAttribute("class", "clear_border");
+                    if (j > 0) //从第二列开始，加数字
+                        td_arr[j].innerHTML = j;
+
+                }
+                if (j == 0) { //第一列无边框
+                    td_arr[0].setAttribute('class',
+                        'clear_border');
+                    if (i > 0) //
+                        td_arr[0].innerHTML = i;
+                }
+
+                tr_arr[i].appendChild(td_arr[j]);
+            }
+            document.getElementsByTagName(
+                'table')[0].appendChild(tr_arr[i]);
+        }
+        // 新建DOM，棋子
+        var newDiv = document.createElement(
+            'div');
+        var table = document.getElementsByTagName('table')[0];
+        // 放入一个td中
+        table.childNodes[6].childNodes[4].appendChild(newDiv);
+        table.childNodes[6].childNodes[4].className = 'original';
+        newDiv.setAttribute(
+            'class', 'newDiv');
+        // DOM建一个正面
+        var front = document.createElement('div');
+        front.setAttribute('class', 'front');
+        newDiv.appendChild(front);
+
+        // 棋子的动作
+        var k = 0;
+        var onOff = true;
+        document.getElementsByTagName('button')[0].onclick = function() {
+            switch (document.getElementsByTagName('input')[0].value.toUpperCase()) {
+                // 左转
+                case 'TUN LEF':
+                    k--;
+                    newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    break;
+                // 后转
+                case 'TUN BAC':
+                    k -= 2;
+                    newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    break;
+                // 右转
+                case 'TUN RIG':
+                    k++;
+                    newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    break;
+                // 运动
+                case 'GO':
+                    // 向上
+                	if(k%4==0){
+                        if(newDiv.offsetTop>51){
+                            newDiv.style.top = (newDiv.offsetTop - 51) + 'px';
+                        };
+                	};
+                    // 向下
+                    if(k%4==-2||k%4==2){
+                        if(newDiv.offsetTop<51*10){
+                            newDiv.style.top = (newDiv.offsetTop + 51) + 'px';
+                        };
+                	};
+                    // 向左
+                    if(k%4==-1||k%4==3){
+                        if(newDiv.offsetLeft>51){
+                            newDiv.style.left = (newDiv.offsetLeft - 51) + 'px';
+                        };
+                	};
+                    // 向右
+                    if(k%4==1||k%4==-3){
+                        if(newDiv.offsetLeft<51*10){
+                            newDiv.style.left = (newDiv.offsetLeft + 51) + 'px';
+                        };
+                	};
+                    break;
+
+                // 向屏幕的左侧移动一格，方向不变
+                case "TRA LEF":
+                    if(newDiv.offsetLeft>51){
+                        newDiv.style.left = (newDiv.offsetLeft - 51) + 'px';
+                    };
+                    break;
+                // 向屏幕的上面移动一格，方向不变
+                case "TRA TOP":
+                    if(newDiv.offsetTop>51){
+                        newDiv.style.top = (newDiv.offsetTop - 51) + 'px';
+                    };
+                    break;
+                // 向屏幕的右侧移动一格，方向不变
+                case "TRA RIG":
+                    if(newDiv.offsetLeft<51*10){
+                        newDiv.style.left = (newDiv.offsetLeft + 51) + 'px';
+                    };
+                    break;
+                // 向屏幕的下面移动一格，方向不变
+                case "TRA BOT":
+                    if(newDiv.offsetTop<51*10){
+                        newDiv.style.top = (newDiv.offsetTop + 51) + 'px';
+                    };
+                    break;
+
+                // 方向转向屏幕左侧，并向屏幕的左侧移动一格
+                case "MOV LEF":
+                    // 如果这时向上，左转
+                    if(k%4==0){
+                        k--;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    };
+                    // 如果这时向下，右转
+                    if(k%4==-2||k%4==2){
+                        k++;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 如果这时向右，后转
+                    if(k%4==1||k%4==-3){
+                        k -= 2;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 转好后，向左移动
+                    if(newDiv.offsetLeft>51){
+                        newDiv.style.left = (newDiv.offsetLeft - 51) + 'px';
+                    };
+                    break;
+                // 方向转向屏幕上面，向屏幕的上面移动一格
+                case "MOV TOP":
+                    // 如果这时向下，后转
+                    if(k%4==1||k%4==-3){
+                        k -= 2;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 如果这时向右，左转
+                    if(k%4==1||k%4==-3){
+                        k--;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 如果这时向左，右转
+                    if(k%4==-1||k%4==3){
+                        k++;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 转好后，向上移动
+                    if(newDiv.offsetTop>51){
+                        newDiv.style.top = (newDiv.offsetTop - 51) + 'px';
+                    };
+                    break;
+                // 方向转向屏幕右侧，向屏幕的右侧移动一格
+                case "MOV RIG":
+                    // 如果这时向左，后转
+                    if(k%4==-1||k%4==3){
+                        k -= 2;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 如果这时向上，右转
+                    if(k%4==0){
+                        k++;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                     }
+                    // 如果这时向下，左转
+                    if(k%4==2||k%4==-2){
+                        k--;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 转好后，向右移动
+                    if(newDiv.offsetLeft<51*10){
+                        newDiv.style.left = (newDiv.offsetLeft + 51) + 'px';
+                    };
+                    break;
+                // 方向转向屏幕下面，向屏幕的下面移动一格
+                case "MOV BOT":
+                    // 如果这时向上，后转
+                    if(k%4==0){
+                        k -= 2;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 如果这时向左，左转
+                    if(k%4==-1||k%4==3){
+                        k--;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 如果这时向右，右转
+                    if(k%4==1||k%4==-3){
+                        k++;
+                        newDiv.style.transform = "rotate(" + 90 * k + "deg)";
+                    }
+                    // 转好后，向下移动
+                    if(newDiv.offsetTop<51*10){
+                        newDiv.style.top = (newDiv.offsetTop + 51) + 'px';
+                    };
+                    break;
+            }
+        }
+    })()
+    </script>
+</body>
+</html>
