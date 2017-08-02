@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04 队列练习</title>
+    <style>
+    ul li {
+        display: inline-block;
+        list-style-type: none;
+        background-color: red;
+        color: white;
+        box-sizing: border-box;
+        padding: 0.5em;
+        margin: 0 0.5em;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="data">
+    <button id="leftin">左侧入</button>
+    <button id="rightin">右侧入</button>
+    <button id="leftout">左侧出</button>
+    <button id="rightout">右侧出</button>
+    <button id="sort">排序</button>
+    <ul id="result"></ul>
+    <script>
+    function leftin() {
+        var data = document.getElementById('data').value;
+        if (isNaN(data)) {
+            alert('请输入数字。');
+        } else {
+            // 加入数字大小验证
+            if (data < 10 || data > 100) {
+                alert('必须在10与100之间')
+            } else {
+                // 加入数字个数验证
+                if (document.getElementById('result').getElementsByTagName('li').length > 60) {
+                    alert('最多只能有60个数字')
+                } else {
+                    var result = document.getElementById('result');
+                    li = document.createElement('li');
+
+                    // 定义元素高度
+                    // 参考https://github.com/18801790654/IFE_Baidu/blob/master/JavaScript/task_5/index.html
+                    li.style.height = (data + 'px');
+                    li.style.name=data;
+                    result.insertBefore(li, result.firstChild);
+                }
+            }
+        }
+    }
+
+    function rightin() {
+        var data = document.getElementById('data').value;
+        if (isNaN(data)) {
+            alert('请输入数字。');
+        } else {
+            // 加入数字大小验证
+            if (data < 10 || data > 100) {
+                alert('必须在10与100之间')
+            } else {
+                // 加入数字个数验证
+                if (document.getElementById('result').getElementsByTagName('li').length > 60) {
+                    alert('最多只能有60个数字')
+                } else {
+                    var result = document.getElementById('result');
+                    li = document.createElement('li');
+                    // 定义元素高度
+                    // 参考https://github.com/18801790654/IFE_Baidu/blob/master/JavaScript/task_5/index.html
+                    li.style.height = (data + 'px');
+                    li.style.name=data;
+                    result.appendChild(li);
+                }
+            }
+        }
+    }
+
+    function leftout() {
+        var result = document.getElementById('result');
+        var data = result.firstChild.innerText;
+        alert("移除" + data);
+        result.removeChild(result.firstChild);
+    }
+
+    function rightout() {
+        var result = document.getElementById('result');
+        var data = result.lastChild.innerText;
+        alert("移除" + data);
+        result.removeChild(result.lastChild);
+    }
+
+    document.getElementById('leftin').onclick = leftin;
+    document.getElementById('rightin').onclick = rightin;
+    document.getElementById('leftout').onclick = leftout;
+    document.getElementById('rightout').onclick = rightout;
+
+    // 点击ul中的元素，消失
+
+    (function() {
+        var result = document.getElementById('result');
+        // 以下是借鉴的https://github.com/smallstar92/baidutask-2017/blob/gh-pages/binbinxueyuan/task4/scripts/task_1_4_1.js
+        result.addEventListener("click", function(e) {
+            var event = window.event || e;
+            if (event.target.nodeName.toLowerCase() == "li") {
+                result.removeChild(event.target);
+            }
+        })
+    })()
+
+    // 排序，用冒泡算法
+    function sort(){
+    	// 取得父节点的引用
+	    var result=document.getElementById('result');
+	    // // 建立空数组
+	    // var nums=[];
+	    // // 遍历子节点，把数值加入数组
+	    // for(var i=0;i<result.childNotes.length;i++){
+	    // 	nums[i]=result.childNotes[i].value;
+	    // }
+	    // var arr=Array.prototype.slice.call(result.childNodes,0);
+	    var result_bubble_sort = function(){
+	    	var i,j,temp;
+	    	for(var i=0;i<this.length-1;i++){
+	    		for(var j=0;j<this.length-1-i;j++){
+	    			if(this[j]>this[j+1]){
+	    				temp=this[i];
+	    				this[i]=this[j+1];
+	    				this[j+1]=temp;
+	    			}
+	    		}
+	    	}
+	    	return this; 
+	    }
+		var newarr=result_bubble_sort(result);
+	}
+
+	document.getElementById('sort').onclick=sort;
+    </script>
+</body>
+
+</html>

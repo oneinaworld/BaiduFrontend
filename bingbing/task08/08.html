@@ -15,36 +15,23 @@
 </head>
 
 <body>
-    <div>
-        d
-        <div>
-            e
-            <div>
-                d
-                <div>e</div>
+    <div>d<div>e<div>d<div>e</div>
                 <div>f</div>
                 <div>c</div>
                 <div>a</div>
             </div>
             <div>a</div>
-            <div>
-                d
-                <div>a</div>
+            <div>d<div>a</div>
                 <div>c</div>
                 <div>b</div>
             </div>
         </div>
-        <div>
-            g
-            <div>c
-                <div>b
-                    <div>e</div>
+        <div>g<div>c
+                <div>b<div>e</div>
                     <div>f</div>
                     <div>c</div>
                 </div>
-                <div>b
-                    <div>g
-                        <div>b</div>
+                <div>b<div>g<div>b</div>
                     </div>
                     <div>e</div>
                 </div>
@@ -121,26 +108,72 @@
     }
 
     // 查询
+    var arrfound = [];
     function check(node) {
         var data = document.getElementById('data').value;
-        var text=node.innerText
-        if (node === null || data == null) { //判断node是否为null
+        var text = (node.firstChild.nodeValue) ? node.firstChild.nodeValue : node.innerText; 
+        // var text = gettext(node);
+        if (node === null || data == null) { //判断node|data是否为null
             return
-        }
-        //先遍历
-        if (text == data) {
+        } else {
+            if (text == data) {
+                // alert('found');
+                arrfound.push(node);
+            }
             arr.push(node);
-        }
-        node = node.firstElementChild; //改变node为其子元素节点
-        while (node) {
-            check(node); //如果存在子元素，则递归调用walkDom
-            node = node.nextElementSibling //从头到尾遍历元素节点
+            
+            node = node.firstElementChild; //改变node为其第一个子元素节点
+            while (node) { //如果node存在
+                check(node);
+                node = node.nextElementSibling //从头到尾遍历元素节点
+                
+            }
         }
     }
+    // alert(root.firstChild.nodeValue)
+
+    function changeCheck() {
+        var i = 0;
+        //元素一背景先设为红色
+        arr[i].style.backgroundColor = 'red';
+        for(var j=0;j<arrfound.length;j++){
+            if(arr[i]==arrfound[j]){
+                arr[i].style.backgroundColor = 'blue';
+            }
+        }
+        timer = setInterval(
+            function() {
+                i++;
+                //当背景变色后，重置前一元素背景色
+                if (i < arr.length) {
+                    arr[i].style.backgroundColor = 'red';
+                    if(arr[i - 1].style.backgroundColor != 'blue'){
+                        arr[i - 1].style.backgroundColor = 'white';
+                    }
+                    
+                    for(var j=0;j<arrfound.length;j++){
+                        if(arr[i]==arrfound[j]){
+                            arr[i].style.backgroundColor = 'blue';
+                        }
+                    }
+                } else {
+                    //遍历完成后，清除定时器，重置最后一个背景色
+                    clearInterval(timer);
+                    if(arr[i - 1].style.backgroundColor != 'blue'){
+                        arr[i - 1].style.backgroundColor = 'white';
+                    }
+                }
+            }, 1000)
+            if(arrfound.length==0){
+                alert('nothing found!')
+            }
+    }
+
     document.getElementsByTagName('button')[1].onclick = function() {
         reset();
         check(root);
-        change();
+        changeCheck();
+        // for(var i in arr)alert(i) //调试用
     };
     </script>
 </body>

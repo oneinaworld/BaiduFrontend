@@ -94,7 +94,7 @@
             if (node.firstElementChild !== null) {
                 preOrder(node.firstElementChild);
             }
-            if (node.firstElementChild.nextElementSibling !== null) {
+            if (node.lastElementChild !== null) {
                 preOrder(node.firstElementChild.nextElementSibling);
             }
         }
