@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务七：UI组件之排序表格</title>
+    <style>
+    table {border-collapse: collapse;margin-top: 10px;}
+    table>thead .head{width: 150px;height: 30px;background: #000;color: #fff;position: relative;text-align: center;}
+    table td{border: 2px solid lightgray;width: 150px;height: 30px;text-align: center;}
+    table span{position: absolute;font-size: 4px;}
+    table thead td div{width: 10%;height: 100%; position: absolute;right: 10px;top: 0;}
+    table thead td div span:nth-of-type(1){top: 4px;right: 0;}
+     table thead td div span:nth-of-type(2){bottom: 4px;;right: 0;} 
+</style>
+</head>
+<body>
+    姓名<input type="text" id="name">
+    语文分数<input type="text" id="wen">
+    数学分数<input type="text" id="math">
+    英语分数<input type="text" id="eng">
+    <input type="button" value="生成表格" id="btn">
+    <table>
+        <thead>
+            <td class="head">姓名</td>
+            <td class="head">语文<div><span>▲</span><span>▼</span></div></td>
+            <td class="head">数学<div><span>▲</span><span>▼</span></div></td>
+            <td class="head">英语<div><span>▲</span><span>▼</span></div></td>
+            <td class="head">合计<div><span>▲</span><span>▼</span></div></td>
+        </thead> 
+        <tbody></tbody>
+    </table> 
+<script>
+
+/* 参考下方设计图，实现一个支持列排序的表格组件
+提供生成表格的接口，表格中的数据，表格样式尽量低耦合（完成）
+可以配置对哪些列支持排序功能，并在表头进行排序按钮的显示，图中的样式为示意参考，可自行设定样式及交互方式（完成）
+提供点击排序按钮后的响应接口，并提供默认的排序方法，当提供的接口没有具体实现时，按默认的排序方法进行排序操作，并更新表格中的数据显*示。
+方法：提供输入框输入数据，变成表格；
+修bug：1、当没有输入分数时总分为NaN问题；2、点击排序时为空的列应视为0；
+*/
+
+var oTbody = document.getElementsByTagName('tbody')[0];
+document.getElementById('btn').onclick = function(){
+    var name = document.getElementById('name').value;
+    var wen = document.getElementById('wen').value;
+    var math = document.getElementById('math').value;
+    var eng = document.getElementById('eng').value;
+
+    // 新建表格
+    /* var nodeTr = document.createElement('tr');
+    var nodeName = document.createElement('td');
+    var nodeWen = document.createElement('td');
+    var nodeMath = document.createElement('td');
+    var nodeEng = document.createElement('td');
+    var nodeSum = document.createElement('td'); */
+    var nodeTr = createEle('tr'),
+        nodeName = createEle('td', name),
+        nodeWen = createEle('td', wen),
+        nodeMath = createEle('td', math),
+        nodeEng = createEle('td', eng),
+        nodeSum = createEle('td', (wen ? parseInt(wen) : 0) + (math ? parseInt(math) : 0) + (eng ? parseInt(eng) : 0));
+    /* nodeName.innerHTML = name;
+    nodeWen.innerHTML = wen;
+    nodeMath.innerHTML = math;
+    nodeEng.innerHTML = eng; 
+    nodeSum.innerHTML = (wen?parseInt(wen):0) + (math?parseInt(math):0) + (eng?parseInt(eng):0);*/
+
+    nodeTr.appendChild(nodeName);
+    nodeTr.appendChild(nodeWen);
+    nodeTr.appendChild(nodeMath);
+    nodeTr.appendChild(nodeEng);
+    nodeTr.appendChild(nodeSum);
+
+    oTbody.appendChild(nodeTr);
+}
+// 创建节点并填充内容的函数
+function createEle(nodename, content){
+    var node = document.createElement(nodename);
+    if(content){node.innerHTML = content;};
+    return node;
+}
+
+// 点击排序功能。原理为：点击div，得到除第一行外所有tr的对应序号td中的innerHTML值，去除所有tr，再按排序后的值添加tr。
+var aDiv = document.getElementsByTagName('div');
+var aTr = oTbody.getElementsByTagName('tr');
+var arrTr = [];
+
+for (var i = 0,len = aDiv.length;i<len;i++){
+    aDiv[i].index = i;
+    aDiv[i].onOff = true; //升降排序标志。true为升序。
+    aDiv[i].onclick = function (){
+        var aSpan = this.getElementsByTagName('span');
+        // 循环tbody下的tr，得到第2个td里的值，
+        for(var j = 0,len1 = aTr.length;j<len1;j++){
+            // 把每一行对应的td的值设为此行的自定义属性
+            aTr[j].value = parseInt(aTr[j].getElementsByTagName('td')[this.index+1].innerHTML);
+            // console.log(aTr[j].value)
+            arrTr.push(aTr[j]);
+        }
+
+        if (this.onOff) {
+            this.onOff = false;
+            arrTr.sort(function(tr1, tr2){
+                return (tr1.value ? tr1.value : 0) > (tr2.value ? tr2.value : 0) ? 1 : -1; //节点排序。升序。
+            })
+            aSpan[0].style.color = 'white';
+            aSpan[1].style.color = 'black';
+        } else if (!this.onOff) {
+            this.onOff = true;
+            arrTr.sort(function (tr1, tr2) {
+                return (tr1.value ? tr1.value : 0) > (tr2.value ? tr2.value : 0) ? -1 : 1; //节点排序
+            })
+            aSpan[0].style.color = 'black';
+            aSpan[1].style.color = 'white';
+        }
+
+        oTbody.innerHTML = '';
+        for (var k = 0, len2 = arrTr.length; k < len2; k++) {
+            oTbody.appendChild(arrTr[k]);
+        }
+    }
+}
+</script>
+</body>
+</html>

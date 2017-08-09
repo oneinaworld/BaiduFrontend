@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务六：UI组件之浮出层</title>
+    <style>
+    *{margin: 0;padding: 0;}
+    body{height: 2000px;}
+    #popup{max-width: 300px;max-height: 200px;border: 1px solid #000;position: absolute;display: none;z-index: 2;background: #fff;}
+    #title{width: 100%;height: 15%;max-height: 30px;background: gray;color: #fff;font-size: 60%;}
+    #btn1{position: absolute;top: 75%;left: 40%;border: 1px solid #000;max-height:30px;max-width: 50px;width: 25%;height: 15%;}
+    #btn2{position: absolute;top: 75%;left: 65%;border: 1px solid #000;max-height:30px;max-width: 50px;width: 25%;height: 15%;}
+    #cover{display: none;z-index: 1;position: absolute;left: 0;top: 0;opacity: 0.2;background: #000;}
+    input{width: 60px;height: 30px;}
+    #rightborder{width: 5px;height: 100%;position: absolute;top: 0;right: 0;}
+    #bottomborder{width: 100%;height: 5px;position: absolute;left: 0;bottom: 0;}
+    #rightbottompot{width: 8px;height: 8px;position: absolute;bottom: 0;right: 0;z-index: 3;}
+</style>
+</head>
+<body>
+    <input type="button" value="点击弹出">
+    <div id="popup">
+        <div id="title">标题</div>
+        <input type="button" value="确定" id="btn1">
+        <input type="button" value="取消" id="btn2">
+        <div id="rightborder"></div>
+        <div id="bottomborder"></div>
+        <div id="rightbottompot"></div>
+    </div>
+    <div id="cover"></div>
+    <script>
+/*
+参考如下设计图，实现一个浮出层的UI组件实现：
+浮出层的中心默认在屏幕正中（利用positon）（完成）
+当浮出层显示时，屏幕滚动时，浮出层始终保持位置固定在屏幕正中，不随屏幕滚动而变化位置。或者禁止页面在有浮出层出现时滚动（利用scrolltop）（完成）
+当浮出层显示时，点击浮出层以外的部分，默认为关闭浮出层。可以实现一个半透明的遮罩来挡住浮出层外的部分(完成)
+浮出层的样式、内容和逻辑尽量解耦（完成）
+提供使用JavaScript控制浮出层展现和关闭的接口(input按钮)（完成）
+浮出层的窗口大小可以是一个默认固定值，也可以是随内容变化而自适应变化，也可以是通过接口参数进行调整，自行根据自己能力进行选择（完成）
+有能力的同学可以实现浮出层的拖拽移动浮出窗口位置以及拖拽边缘来放大缩小浮出窗口的功能（完成）
+*/
+var oPop = document.getElementById('popup');
+var oTit = document.getElementById('title');
+var aInp = document.getElementsByTagName('input');
+var oCov = document.getElementById('cover');
+
+aInp[0].onclick = function(){
+    oPop.style.display = 'block';
+    toCenter();
+    document.body.scrollTop + 'px';
+    oCov.style.display = 'block';
+    oCov.style.width = document.body.clientWidth + 'px';
+    oCov.style.height = document.body.clientHeight + 'px';
+}
+oCov.onclick = function(){
+    this.style.display = 'none';
+    oPop.style.display = 'none';
+}
+window.onscroll = function(){
+    toCenter();
+}
+window.onresize = function(){
+    toCenter();
+    oCov.style.width = document.body.clientWidth + 'px';
+    oCov.style.height = document.body.clientHeight + 'px';
+}
+function toCenter(){ //弹窗显示在可视区正中的封装函数
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+    oPop.style.width = document.documentElement.clientWidth*0.3 + 'px';
+    oPop.style.height = document.documentElement.clientHeight*0.2 + 'px';
+    oPop.style.left = (document.documentElement.clientWidth - oPop.clientWidth)/2 + scrollLeft + 'px';
+    oPop.style.top = (document.documentElement.clientHeight - oPop.clientHeight)/2 + scrollTop + 'px';
+}
+
+// 拖拽
+oPop.onmousedown = function(ev){
+    var ev = ev || event;
+    var disX = ev.clientX - this.offsetLeft;
+    var disY = ev.clientY - this.offsetTop;
+
+    document.onmousemove = function(ev){
+        var ev = ev || event, L = ev.clientX - disX, T = ev.clientY - disY;
+        if (L<0){ 
+            L = 0;
+        } else if (L>document.documentElement.clientWidth-oPop.offsetWidth){
+            L = document.documentElement.clientWidth - oPop.offsetWidth
+        }
+        if (T < 0) {
+            T = 0;
+        } else if (T > document.documentElement.clientHeight - oPop.offsetHeight) {
+            T = document.documentElement.clientHeight - oPop.offsetHeight
+        }
+        oPop.style.left = L + 'px';
+        oPop.style.top = T + 'px';
+        ;
+    }
+
+    document.onmouseup = function(ev){
+        document.onmousemove = document.onmouseup = null;
+    }
+    return false;
+}
+
+// 放大缩小窗口
+// 原理为：点击右border、下border、右下点时，获取鼠标位置；移动时，按鼠标位置变化量增加width、height；抬起时，清除事件函数。
+// 难点是：确定点击位置。并使拖拽函数失效。为此在原窗体上加了不可见的3个元素，分别在右边缘、下边缘、右下角。
+    var oRiBor = document.getElementById('rightborder');
+    var oBoBor = document.getElementById('bottomborder');
+    var oRBPot = document.getElementById('rightbottompot');
+    oRiBor.onmousedown = reSize;
+    oBoBor.onmousedown = reSize;
+    oRBPot.onmousedown = reSize;
+    
+    function reSize(ev){
+        var ev = ev || event;
+        var disX = ev.clientX;
+        var wid = oPop.clientWidth;
+        var disY = ev.clientY;
+        var hei = oPop.clientHeight;
+        var that = this;
+        event.cancelBubble = true;
+
+        document.onmousemove = function (ev) {
+            var ev = ev || event;
+            if (that == oRBPot){
+                oPop.style.width = wid + ev.clientX - disX + 'px';
+                oPop.style.height = hei + ev.clientY - disY + 'px';
+            } else if(that == oRiBor){
+                oPop.style.width = wid + ev.clientX - disX + 'px';
+            } else if(that == oBoBor){
+                oPop.style.height = hei + ev.clientY - disY + 'px';
+            }
+        }
+
+        document.onmouseup = function (ev) {
+            document.onmousemove = document.onmouseup = null;
+
+        }
+        return false;
+    }
+</script>
+</body>
+</html>
