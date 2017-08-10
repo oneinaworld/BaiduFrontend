@@ -6,11 +6,11 @@ nav{
 }
 nav>ul{
 	margin: 0; /* 让导航条贴边 */
+	float: right;
 }
 nav>ul>li{
 	display: inline;
 	list-style-type: none;
-	float: right;
 }
 li>a{
 	display: inline-block;

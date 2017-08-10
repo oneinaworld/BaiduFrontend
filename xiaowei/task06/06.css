@@ -321,3 +321,7 @@ div.middle {
 	vertical-align: text-bottom;
 }
 
+.info3>p span:nth-of-type(2){
+	position: relative;
+	top: 30px;
+}
